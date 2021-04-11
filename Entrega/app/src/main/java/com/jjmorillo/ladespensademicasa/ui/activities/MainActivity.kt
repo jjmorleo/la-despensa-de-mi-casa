@@ -1,7 +1,8 @@
-package com.jjmorillo.ladespensademicasa
+package com.jjmorillo.ladespensademicasa.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.jjmorillo.ladespensademicasa.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
