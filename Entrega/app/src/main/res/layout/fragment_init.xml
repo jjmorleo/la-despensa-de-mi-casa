@@ -50,7 +50,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Empezar"
-        app:layout_constraintBottom_toBottomOf="@id/init_guidelineH9"
+        app:layout_constraintBottom_toTopOf="@id/init_guidelineH9"
         app:layout_constraintEnd_toStartOf="@id/init_guidelineV9"
         app:layout_constraintStart_toEndOf="@id/init_guidelineV5"
 
