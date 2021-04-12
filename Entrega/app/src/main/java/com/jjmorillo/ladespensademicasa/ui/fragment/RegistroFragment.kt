@@ -11,12 +11,20 @@ import com.jjmorillo.ladespensademicasa.databinding.FragmentRegistroBinding
 
 class RegistroFragment : Fragment() {
 
-    private var binding: FragmentRegistroBinding? = null
+    private var _binding: FragmentRegistroBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentRegistroBinding.inflate(inflater, container, false)
+        val view = binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_registro, container, false)
+        return view
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 
 }
