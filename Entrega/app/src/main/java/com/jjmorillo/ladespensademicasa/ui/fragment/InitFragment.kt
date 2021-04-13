@@ -22,9 +22,9 @@ class InitFragment : Fragment() {
         return view
     }
 
-    override fun onDestroyView() {
+   /* override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
-
+*/
 }

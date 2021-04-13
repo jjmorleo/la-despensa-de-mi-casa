@@ -7,21 +7,21 @@
     tools:context=".ui.fragment.RegistroFragment">
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main2_Vguide10"
+        android:id="@+id/registro_Vguide10"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main2_Vguide90"
+        android:id="@+id/registro_Vguide90"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/main2_Hguide90"
+        android:id="@+id/registro_Hguide90"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -32,12 +32,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/main2_Hguide90"
-        app:layout_constraintEnd_toStartOf="@+id/main2_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main2_Vguide10">
+        app:layout_constraintBottom_toTopOf="@+id/registro_Hguide90"
+        app:layout_constraintEnd_toStartOf="@+id/registro_Vguide90"
+        app:layout_constraintStart_toEndOf="@id/registro_Vguide10">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/main2_btn_cancelar"
+            android:id="@+id/registro_btn_cancelar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -50,7 +50,7 @@
             app:strokeWidth="2dp" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/main2_btn_registrar"
+            android:id="@+id/registro_btn_registrar"
             style="@style/Widget.MaterialComponents.Button.OutlinedButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main2_til_repite_password"
+        android:id="@+id/registro_til_repite_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -82,11 +82,11 @@
         app:errorEnabled="true"
         app:hintTextColor="@color/color_secondary"
         app:layout_constraintBottom_toTopOf="@+id/buttons_ll"
-        app:layout_constraintEnd_toStartOf="@id/main2_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main2_Vguide10">
+        app:layout_constraintEnd_toStartOf="@id/registro_Vguide90"
+        app:layout_constraintStart_toEndOf="@id/registro_Vguide10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/main2_tie_repite_password"
+            android:id="@+id/registro_tie_repite_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="actionDone"
@@ -94,7 +94,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main2_til_password"
+        android:id="@+id/registro_til_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -106,12 +106,12 @@
         app:endIconMode="password_toggle"
         app:errorEnabled="true"
         app:hintTextColor="@color/color_secondary"
-        app:layout_constraintBottom_toTopOf="@+id/main2_til_repite_password"
-        app:layout_constraintEnd_toStartOf="@id/main2_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main2_Vguide10">
+        app:layout_constraintBottom_toTopOf="@+id/registro_til_repite_password"
+        app:layout_constraintEnd_toStartOf="@id/registro_Vguide90"
+        app:layout_constraintStart_toEndOf="@id/registro_Vguide10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/main2_tie_password"
+            android:id="@+id/registro_tie_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="actionNext"
@@ -119,7 +119,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main2_usuario"
+        android:id="@+id/registro_usuario"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -130,12 +130,12 @@
         app:cornerRadius="15dp"
         app:endIconMode="clear_text"
         app:hintTextColor="@color/color_secondary"
-        app:layout_constraintBottom_toTopOf="@+id/main2_til_password"
-        app:layout_constraintEnd_toStartOf="@id/main2_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main2_Vguide10">
+        app:layout_constraintBottom_toTopOf="@+id/registro_til_password"
+        app:layout_constraintEnd_toStartOf="@id/registro_Vguide90"
+        app:layout_constraintStart_toEndOf="@id/registro_Vguide10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/usuario_tie"
+            android:id="@+id/registro_tie_usuario"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="actionNext"
@@ -143,7 +143,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/main2_name"
+        android:id="@+id/registro_name"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -154,12 +154,12 @@
         app:cornerRadius="15dp"
         app:endIconMode="clear_text"
         app:hintTextColor="@color/color_secondary"
-        app:layout_constraintBottom_toTopOf="@+id/main2_usuario"
-        app:layout_constraintEnd_toStartOf="@id/main2_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main2_Vguide10">
+        app:layout_constraintBottom_toTopOf="@+id/registro_usuario"
+        app:layout_constraintEnd_toStartOf="@id/registro_Vguide90"
+        app:layout_constraintStart_toEndOf="@id/registro_Vguide10">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/main2_name_tie"
+            android:id="@+id/registro_name_tie"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:imeOptions="actionNext"
@@ -174,9 +174,9 @@
         android:src="@mipmap/ic_launcher"
         app:civ_border_color="@color/color_secondary"
         app:civ_border_width="2dp"
-        app:layout_constraintBottom_toTopOf="@id/main2_name"
-        app:layout_constraintEnd_toStartOf="@id/main2_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main2_Vguide10"
+        app:layout_constraintBottom_toTopOf="@id/registro_name"
+        app:layout_constraintEnd_toStartOf="@id/registro_Vguide90"
+        app:layout_constraintStart_toEndOf="@id/registro_Vguide10"
         app:layout_constraintTop_toTopOf="parent" />
 
 

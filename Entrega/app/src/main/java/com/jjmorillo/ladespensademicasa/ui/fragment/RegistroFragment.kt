@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.FragmentRegistroBinding
 
 
@@ -22,9 +21,9 @@ class RegistroFragment : Fragment() {
         return view
     }
 
-    override fun onDestroyView() {
+    /*override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }
+    }*/
 
 }
