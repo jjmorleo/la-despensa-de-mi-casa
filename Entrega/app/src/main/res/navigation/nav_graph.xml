@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/initFragment">
+
+    <fragment
+        android:id="@+id/initFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragment.InitFragment"
+        android:label="fragment_init"
+        tools:layout="@layout/fragment_init">
+        <action
+            android:id="@+id/action_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registroFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragment.RegistroFragment"
+        android:label="fragment_registro"
+        tools:layout="@layout/fragment_registro">
+        <action
+            android:id="@+id/action_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragment.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_to_registroFragment"
+            app:destination="@id/registroFragment" />
+    </fragment>
+</navigation>

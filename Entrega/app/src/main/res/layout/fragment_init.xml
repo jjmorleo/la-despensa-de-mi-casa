@@ -37,11 +37,11 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Bienvenido a la aplicación creada Android Studio de la despensa de mi casa. Veremos su funciponalidad "
+        android:text="Bienvenido a la aplicación creada con Android Stud "
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/init_guidelineV9"
-        app:layout_constraintStart_toEndOf="@id/init_guidelineV1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
