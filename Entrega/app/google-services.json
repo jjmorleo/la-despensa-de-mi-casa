@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "636804581008",
+    "project_id": "la-despensa-de-mi-casa",
+    "storage_bucket": "la-despensa-de-mi-casa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636804581008:android:3588d261c68e6a60363a15",
+        "android_client_info": {
+          "package_name": "com.jjmorillo.ladespensademicasa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636804581008-1f6joqki7u0om9ja2v0ik7c0nhhjgf4q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzqtSvTUrXx3kb1O1YGW01cdu1Kb6_9Fg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636804581008-1f6joqki7u0om9ja2v0ik7c0nhhjgf4q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
