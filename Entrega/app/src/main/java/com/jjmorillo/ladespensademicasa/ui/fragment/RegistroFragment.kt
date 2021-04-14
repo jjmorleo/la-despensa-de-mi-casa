@@ -5,26 +5,119 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.NavHostFragment
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthWeakPasswordException
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.FragmentRegistroBinding
 
 
 class RegistroFragment : Fragment() {
 
     private var _binding: FragmentRegistroBinding? = null
-    private val binding get() = _binding!!
+    private val binding: FragmentRegistroBinding
+        get() = _binding!!
     private lateinit var auth: FirebaseAuth
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegistroBinding.inflate(inflater, container, false)
         val view = binding.root
         auth = Firebase.auth
         // Inflate the layout for this fragment
+
+
+        binding.registroBtnRegistrar.setOnClickListener {
+
+            val nombre = binding.registroNameTie
+            val email = binding.registroTieUsuario
+            val pass1 = binding.registroTiePassword
+            val pass2 = binding.registroTieRepitePassword
+
+            if (nombre.obtenerTexto().isNullOrBlank()) {
+                Snackbar.make(
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            if (email.obtenerTexto().isNullOrBlank()) {
+                Snackbar.make(
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            if (pass1.obtenerTexto().isNullOrBlank()) {
+                Snackbar.make(
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            if (pass2.obtenerTexto().isNullOrBlank()) {
+                Snackbar.make(
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
+                ).show()
+                return@setOnClickListener
+            }
+            if (pass1.obtenerTexto() != pass2.obtenerTexto()) {
+                Snackbar.make(view, "¡las contraseñas no coinciden!", Snackbar.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
+                .addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        finish()
+
+                    } else {
+                        when (task.exception) {
+                            is FirebaseAuthWeakPasswordException -> {
+                                Snackbar.make(
+                                    view,
+                                    "la contraseña es muy débil, debe tener 6 caracters",
+                                    Snackbar.LENGTH_SHORT
+                                ).show()
+                            }
+                            else -> {
+                                Snackbar.make(
+                                    view,
+                                    "la contraseña es muy débil, debe tener 6 caracters",
+                                    Snackbar.LENGTH_SHORT
+                                ).show()
+
+                            }
+                        }
+                    }
+
+                }
+
+        }
+
+        binding.registroBtnCancelar.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_to_loginFragment)
+        }
         return view
+    }
+
+    fun TextInputEditText.obtenerTexto(): String {
+        return text.toString()
+    }
+
+    fun finish() {
+
     }
 
     /*override fun onDestroyView() {
