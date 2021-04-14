@@ -1,6 +1,7 @@
 package com.jjmorillo.ladespensademicasa.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -84,6 +85,7 @@ class RegistroFragment : Fragment() {
                     } else {
                         when (task.exception) {
                             is FirebaseAuthWeakPasswordException -> {
+                                Log.d(TAG, "El usuario ha sido registrado")
                                 Snackbar.make(
                                     view,
                                     "la contraseña es muy débil, debe tener 7 caracters",
@@ -91,6 +93,7 @@ class RegistroFragment : Fragment() {
                                 ).show()
                             }
                             else -> {
+                                Log.d(TAG, "El usuario debe registrase")
                                 Snackbar.make(
                                     view,
                                     "la contraseña es muy débil, debe tener 6 caracters",
@@ -117,7 +120,7 @@ class RegistroFragment : Fragment() {
     }
 
     fun finish() {
-
+        return
     }
 
     /*override fun onDestroyView() {
