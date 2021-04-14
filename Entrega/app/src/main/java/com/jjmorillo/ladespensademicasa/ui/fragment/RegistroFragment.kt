@@ -22,7 +22,7 @@ class RegistroFragment : Fragment() {
     private val binding: FragmentRegistroBinding
         get() = _binding!!
     private lateinit var auth: FirebaseAuth
-
+    private var TAG = "FRAGMENT_REGISTRO"
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -78,24 +78,23 @@ class RegistroFragment : Fragment() {
             }
 
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
-                .addOnCompleteListener(this) { task ->
+                .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         finish()
-
                     } else {
                         when (task.exception) {
                             is FirebaseAuthWeakPasswordException -> {
                                 Snackbar.make(
                                     view,
-                                    "la contraseña es muy débil, debe tener 6 caracters",
-                                    Snackbar.LENGTH_SHORT
+                                    "la contraseña es muy débil, debe tener 7 caracters",
+                                    Snackbar.LENGTH_LONG
                                 ).show()
                             }
                             else -> {
                                 Snackbar.make(
                                     view,
                                     "la contraseña es muy débil, debe tener 6 caracters",
-                                    Snackbar.LENGTH_SHORT
+                                    Snackbar.LENGTH_LONG
                                 ).show()
 
                             }
@@ -111,6 +110,7 @@ class RegistroFragment : Fragment() {
         }
         return view
     }
+
 
     fun TextInputEditText.obtenerTexto(): String {
         return text.toString()
