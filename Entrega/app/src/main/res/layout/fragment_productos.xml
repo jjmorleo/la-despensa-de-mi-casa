@@ -6,9 +6,11 @@
     tools:context=".ui.fragment.ProductosFragment">
 
 
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productos_recycler_view_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        tools:listitem="@layout/item_producto_recycler_view"
+        />
 
 </FrameLayout>
