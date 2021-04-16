@@ -10,7 +10,6 @@
         android:id="@+id/productos_recycler_view_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/item_producto_recycler_view"
-        />
+        tools:listitem="@layout/item_producto_recycler_view" />
 
 </FrameLayout>

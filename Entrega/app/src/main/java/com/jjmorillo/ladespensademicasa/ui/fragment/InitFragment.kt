@@ -23,7 +23,7 @@ class InitFragment : Fragment() {
         val view = binding.root
         // Inflate the layout for this fragment
         _binding!!.initMaterialButton.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.productos_recycler_view_fragment)
+            NavHostFragment.findNavController(this).navigate(R.id.action_to_loginFragment)
 
         }
         return view

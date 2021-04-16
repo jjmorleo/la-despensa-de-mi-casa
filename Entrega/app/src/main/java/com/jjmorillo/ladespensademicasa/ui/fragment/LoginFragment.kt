@@ -29,6 +29,10 @@ class LoginFragment : Fragment() {
         binding.mainMbtRegistro.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(R.id.action_to_registroFragment)
         }
+
+        binding.mainMbtIniciarSeccion.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_to_productosFragment)
+        }
         return view
     }
 

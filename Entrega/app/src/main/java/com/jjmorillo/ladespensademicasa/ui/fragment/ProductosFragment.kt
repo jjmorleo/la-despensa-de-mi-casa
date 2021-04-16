@@ -47,8 +47,8 @@ class ProductosFragment : Fragment() {
         val mAdapter = RecyclerViewAdapter(cargarProductos())
         val recyclerView = binding!!.productosRecyclerViewFragment
         recyclerView.apply {
-            //EL RECYCLERVIEW VA A SER UNA LISTA HORIZONTAL
-            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.HORIZONTAL, false)
+            //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
+            layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = mAdapter
         }
     }

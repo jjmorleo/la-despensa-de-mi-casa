@@ -7,5 +7,5 @@
 
     <include layout="@layout/navhost_layout" />
 
-
+    <include layout="@layout/item_producto_recycler_view" />
 </androidx.constraintlayout.widget.ConstraintLayout>
