@@ -34,6 +34,7 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.5" />
 
+
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"

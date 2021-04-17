@@ -3,14 +3,16 @@ package com.jjmorillo.ladespensademicasa.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.toColorInt
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.jjmorillo.ladespensademicasa.databinding.ItemProductoRecyclerViewBinding
+import com.jjmorillo.ladespensademicasa.databinding.ItemProductoArtrViewBinding
 import com.jjmorillo.ladespensademicasa.models.Producto
 
-class RecyclerViewAdapter(val productos:List<Producto>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
-
-
-    class ViewHolder private constructor(val binding: ItemProductoRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root) {
+class RecyclerViewAdapter(private val productos:List<Producto>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
+//ESTO SERIA UTULIZANDO EL ITEMPRODUCTORECYCLERVIEW
+    //class ViewHolder private constructor(val binding: ItemProductoRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder private constructor(val binding: ItemProductoArtrViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun rellenarDatos(producto: Producto) {
 
@@ -18,16 +20,9 @@ class RecyclerViewAdapter(val productos:List<Producto>) : RecyclerView.Adapter<R
             binding.itemProductoNombre.text = producto.nombre
             binding.itemProductoMarca.text = producto.marca
             binding.itemProductoDescripcion.text = producto.descripcion
-            binding.itemProductoImagen.text = producto.imagen
             binding.itemProductoPrecioUnidad.text = producto.precio_unidad.toString()
             binding.itemProductoPrecio.text = producto.precio.toString()
-            binding.itemProductoId1.text = producto.id.toString()
-            binding.itemProductoNombre1.text = producto.nombre
-            binding.itemProductoMarca1.text = producto.marca
-            binding.itemProductoDescripcion1.text = producto.descripcion
-            binding.itemProductoImagen1.text = producto.imagen
-            binding.itemProductoPrecioUnidad1.text = producto.precio_unidad.toString()
-            binding.itemProductoPrecio1.text = producto.precio.toString()
+
         }
 
 
@@ -36,7 +31,7 @@ class RecyclerViewAdapter(val productos:List<Producto>) : RecyclerView.Adapter<R
         companion object {
             fun crearViewHolder(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemProductoRecyclerViewBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemProductoArtrViewBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }

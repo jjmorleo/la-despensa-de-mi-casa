@@ -24,9 +24,10 @@ class RegistroFragment : Fragment() {
         get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private var TAG = "FRAGMENT_REGISTRO"
+
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegistroBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -43,33 +44,33 @@ class RegistroFragment : Fragment() {
 
             if (nombre.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                    view,
-                    "Revisa los campos, no pueden estar nulos",
-                    Snackbar.LENGTH_SHORT
+                        view,
+                        "Revisa los campos, no pueden estar nulos",
+                        Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (email.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                    view,
-                    "Revisa los campos, no pueden estar nulos",
-                    Snackbar.LENGTH_SHORT
+                        view,
+                        "Revisa los campos, no pueden estar nulos",
+                        Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (pass1.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                    view,
-                    "Revisa los campos, no pueden estar nulos",
-                    Snackbar.LENGTH_SHORT
+                        view,
+                        "Revisa los campos, no pueden estar nulos",
+                        Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (pass2.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                    view,
-                    "Revisa los campos, no pueden estar nulos",
-                    Snackbar.LENGTH_SHORT
+                        view,
+                        "Revisa los campos, no pueden estar nulos",
+                        Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
@@ -79,32 +80,32 @@ class RegistroFragment : Fragment() {
             }
 
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
-                .addOnCompleteListener(requireActivity()) { task ->
-                    if (task.isSuccessful) {
-                        finish()
-                    } else {
-                        when (task.exception) {
-                            is FirebaseAuthWeakPasswordException -> {
-                                Log.d(TAG, "El usuario ha sido registrado")
-                                Snackbar.make(
-                                    view,
-                                    "la contraseña es muy débil, debe tener 7 caracters",
-                                    Snackbar.LENGTH_LONG
-                                ).show()
-                            }
-                            else -> {
-                                Log.d(TAG, "El usuario debe registrase")
-                                Snackbar.make(
-                                    view,
-                                    "la contraseña es muy débil, debe tener 6 caracters",
-                                    Snackbar.LENGTH_LONG
-                                ).show()
+                    .addOnCompleteListener(requireActivity()) { task ->
+                        if (task.isSuccessful) {
+                            finish()
+                        } else {
+                            when (task.exception) {
+                                is FirebaseAuthWeakPasswordException -> {
+                                    Log.d(TAG, "El usuario ha sido registrado")
+                                    Snackbar.make(
+                                            view,
+                                            "la contraseña es muy débil, debe tener 7 caracters",
+                                            Snackbar.LENGTH_LONG
+                                    ).show()
+                                }
+                                else -> {
+                                    Log.d(TAG, "El usuario debe registrase")
+                                    Snackbar.make(
+                                            view,
+                                            "la contraseña es muy débil, debe tener 6 caracters",
+                                            Snackbar.LENGTH_LONG
+                                    ).show()
 
+                                }
                             }
                         }
-                    }
 
-                }
+                    }
 
         }
 
@@ -123,9 +124,10 @@ class RegistroFragment : Fragment() {
         return
     }
 
-    /*override fun onDestroyView() {
+    override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
-    }*/
+    }
 
+    @JvmName
 }
