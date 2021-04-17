@@ -82,7 +82,7 @@ class RegistroFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
                     .addOnCompleteListener(requireActivity()) { task ->
                         if (task.isSuccessful) {
-                            finish()
+                            requireActivity().finish()
                         } else {
                             when (task.exception) {
                                 is FirebaseAuthWeakPasswordException -> {
@@ -120,14 +120,11 @@ class RegistroFragment : Fragment() {
         return text.toString()
     }
 
-    fun finish() {
-        return
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
-    @JvmName
 }

@@ -33,13 +33,10 @@ class LoginFragment : Fragment() {
         auth = Firebase.auth
         // Inflate the layout for this fragment
 
-        binding.mainMbtRegistro.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.action_to_registroFragment)
-        }
+
 
         binding.mainMbtIniciarSeccion.setOnClickListener {
 
-            NavHostFragment.findNavController(this).navigate(R.id.action_to_productosFragment)
             val email = binding.mainTieUsuario
             val pass1 = binding.mainTiePassword
             auth.signInWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
@@ -81,9 +78,13 @@ class LoginFragment : Fragment() {
     }
 
     fun goToProducts(){
-        val intent = Intent(this.context, ProductosFragment::class.java)
+        binding.mainMbtIniciarSeccion.setOnClickListener {
+            NavHostFragment.findNavController(this).navigate(R.id.action_to_productosFragment)
+        }
+
+        /*val intent = Intent(this.context, ProductosFragment::class.java)
         startActivity(intent)
-        requireActivity().finish()
+        requireActivity().finish()*/
     }
 
    /* private fun validateForm(): Boolean {

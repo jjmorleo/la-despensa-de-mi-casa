@@ -14,8 +14,5 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        val fragment = supportFragmentManager //Esto es lo ultimo añadido
-        val intent = Intent(this, ProductosFragment::class.java)
-        startActivity(intent)
     }
 }

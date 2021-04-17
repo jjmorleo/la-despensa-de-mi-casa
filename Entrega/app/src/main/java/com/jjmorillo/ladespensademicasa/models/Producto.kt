@@ -8,7 +8,7 @@ data class Producto(val nombre: String, val marca: String, val descripcion: Stri
     }
 
     override fun toString(): String {
-        return "Producto(nombre=$nombre, marca=$marca, descripcion=$descripcion, imagen=$imagen, precio_unidad=$precio_unidad, precio=$precio, id=$id)"
+        return "Producto(id=$id, nombre=$nombre, marca=$marca, descripcion=$descripcion, imagen=$imagen, precio_unidad=$precio_unidad, precio=$precio, id=$id)"
     }
 
 
