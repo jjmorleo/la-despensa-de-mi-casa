@@ -6,22 +6,22 @@ import android.view.ViewGroup
 import androidx.core.graphics.toColorInt
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.jjmorillo.ladespensademicasa.databinding.ItemProductoArtrViewBinding
+import com.jjmorillo.ladespensademicasa.databinding.ItemProductoCardViewBinding
 import com.jjmorillo.ladespensademicasa.models.Producto
 
 class RecyclerViewAdapter(private val productos:List<Producto>) : RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder>() {
 //ESTO SERIA UTULIZANDO EL ITEMPRODUCTORECYCLERVIEW
     //class ViewHolder private constructor(val binding: ItemProductoRecyclerViewBinding) : RecyclerView.ViewHolder(binding.root)
-    class ViewHolder private constructor(val binding: ItemProductoArtrViewBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(val binding: ItemProductoCardViewBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun rellenarDatos(producto: Producto) {
 
-            binding.itemProductoId.text = producto.id.toString()
+           // binding.itemProductoId.text = producto.id.toString()
             binding.itemProductoNombre.text = producto.nombre
             binding.itemProductoMarca.text = producto.marca
             binding.itemProductoDescripcion.text = producto.descripcion
             binding.itemProductoPrecioUnidad.text = producto.precio_unidad.toString()
-            binding.itemProductoPrecio.text = producto.precio.toString()
+           // binding.itemProductoPrecio.text = producto.precio.toString()
 
         }
 
@@ -31,7 +31,7 @@ class RecyclerViewAdapter(private val productos:List<Producto>) : RecyclerView.A
         companion object {
             fun crearViewHolder(parent: ViewGroup): ViewHolder {
                 val layoutInflater = LayoutInflater.from(parent.context)
-                val binding = ItemProductoArtrViewBinding.inflate(layoutInflater, parent, false)
+                val binding = ItemProductoCardViewBinding.inflate(layoutInflater, parent, false)
                 return ViewHolder(binding)
             }
         }

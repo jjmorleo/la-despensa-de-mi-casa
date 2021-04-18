@@ -1,45 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.LoginFragment">
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_Vguide10"
-        app:layout_constraintGuide_percent="0.1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_Vguide90"
-        app:layout_constraintGuide_percent="0.9"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" />
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/main_Hguide90"
-        app:layout_constraintGuide_percent="0.9"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal" />
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main_mbt_olvidar_password"
         style="@style/Widget.MaterialComponents.Button.TextButton"
-        app:layout_constraintBottom_toTopOf="@+id/main_Hguide90"
-        app:layout_constraintEnd_toStartOf="@+id/main_Vguide90"
-        app:layout_constraintStart_toEndOf="@+id/main_Vguide10"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="¿Olvidó su contraseña?" />
+        android:text="¿Olvidó su contraseña?"
+        app:layout_constraintBottom_toTopOf="@+id/main_Hguide90"
+        app:layout_constraintEnd_toStartOf="@+id/main_Vguide90"
+        app:layout_constraintStart_toEndOf="@+id/main_Vguide10" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main_mbt_registro"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="Registrate"
         app:cornerRadius="15dp"
         app:icon="@drawable/ic_baseline_person_add_alt_1_24"
         app:iconGravity="textStart"
@@ -48,15 +52,15 @@
         app:layout_constraintEnd_toStartOf="@+id/main_Vguide90"
         app:layout_constraintStart_toEndOf="@id/main_Vguide10"
         app:strokeColor="@color/color_secondary"
-        app:strokeWidth="2dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="Registrate" />
+        app:strokeWidth="2dp" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/main_mbt_iniciar_seccion"
         style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:text="Iniciar Sección"
         app:cornerRadius="15dp"
         app:icon="@drawable/ic_baseline_login_24"
         app:iconGravity="textStart"
@@ -65,14 +69,14 @@
         app:layout_constraintEnd_toStartOf="@+id/main_Vguide90"
         app:layout_constraintStart_toEndOf="@id/main_Vguide10"
         app:strokeColor="@color/color_secondary"
-        app:strokeWidth="2dp"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:text="Iniciar Sección" />
+        app:strokeWidth="2dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_til_introducir_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Contraseña"
         app:boxStrokeColor="@color/color_secondary"
         app:boxStrokeWidth="2dp"
         app:cornerRadius="15dp"
@@ -81,12 +85,8 @@
         app:hintTextColor="@color/color_secondary"
         app:layout_constraintBottom_toTopOf="@+id/main_mbt_iniciar_seccion"
         app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
 
-        android:hint="Contraseña">
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main_tie_password"
@@ -98,6 +98,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/main_til_introducir_usuario"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:hint="Nombre de usuario"
         app:boxStrokeColor="@color/color_secondary"
         app:boxStrokeWidth="2dp"
         app:cornerRadius="15dp"
@@ -105,11 +109,7 @@
         app:hintTextColor="@color/color_secondary"
         app:layout_constraintBottom_toTopOf="@+id/main_til_introducir_password"
         app:layout_constraintEnd_toStartOf="@id/main_Vguide90"
-        app:layout_constraintStart_toEndOf="@id/main_Vguide10"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="15dp"
-        android:hint="Nombre de usuario">
+        app:layout_constraintStart_toEndOf="@id/main_Vguide10">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/main_tie_usuario"

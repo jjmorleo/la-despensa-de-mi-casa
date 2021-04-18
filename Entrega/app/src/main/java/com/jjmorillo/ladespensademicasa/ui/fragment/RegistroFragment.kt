@@ -82,14 +82,17 @@ class RegistroFragment : Fragment() {
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
                     .addOnCompleteListener(requireActivity()) { task ->
                         if (task.isSuccessful) {
-                            requireActivity().finish()
+                            binding.registroBtnRegistrar.setOnClickListener {
+                                NavHostFragment.findNavController(this).navigate(R.id.action_to_loginFragment)
+                            }
+
                         } else {
                             when (task.exception) {
                                 is FirebaseAuthWeakPasswordException -> {
                                     Log.d(TAG, "El usuario ha sido registrado")
                                     Snackbar.make(
                                             view,
-                                            "la contraseña es muy débil, debe tener 7 caracters",
+                                            "la contraseña es muy débil, debe tener 6 caracters",
                                             Snackbar.LENGTH_LONG
                                     ).show()
                                 }
@@ -97,7 +100,7 @@ class RegistroFragment : Fragment() {
                                     Log.d(TAG, "El usuario debe registrase")
                                     Snackbar.make(
                                             view,
-                                            "la contraseña es muy débil, debe tener 6 caracters",
+                                            "No se ha podido registrar el usuario de forma correcta",
                                             Snackbar.LENGTH_LONG
                                     ).show()
 
@@ -115,12 +118,9 @@ class RegistroFragment : Fragment() {
         return view
     }
 
-
     fun TextInputEditText.obtenerTexto(): String {
         return text.toString()
     }
-
-
 
     override fun onDestroyView() {
         super.onDestroyView()

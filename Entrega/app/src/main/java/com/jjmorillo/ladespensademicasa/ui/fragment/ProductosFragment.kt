@@ -6,9 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.jjmorillo.ladespensademicasa.adapters.RecyclerViewAdapter
 import com.jjmorillo.ladespensademicasa.databinding.FragmentProductosBinding
 import com.jjmorillo.ladespensademicasa.models.Producto
@@ -17,15 +21,25 @@ import com.jjmorillo.ladespensademicasa.models.Producto
 class ProductosFragment : Fragment() {
 
     private var binding: FragmentProductosBinding? = null
+    private lateinit var auth: FirebaseAuth
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentProductosBinding.inflate(inflater, container, false)
         val view = binding!!.root
+        auth = Firebase.auth
 
         loadListView()
         createRecyclerView()
+
+        //  CERRAR SESION
+
+       /* binding.closeSesion.setOnClickListener(){
+            auth.signOut()
+             NavHostFragment.findNavController(this).navigate(R.id.action_to_loginFragment)
+            requireActivity().finish()
+        }*/
 
         return view
     }
@@ -49,6 +63,10 @@ class ProductosFragment : Fragment() {
             //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
             //layoutManager = GridLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
             adapter = mAdapter
+            //PARA AÑADIR LINEAS VERTICALES Y HORIZONTALES
+            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
+            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL))
+
         }
     }
 
