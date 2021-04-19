@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -30,8 +32,18 @@ class ProductosFragment : Fragment() {
         val view = binding!!.root
         auth = Firebase.auth
 
+        //ESTO SERIA PARA INICIALIZAR EL VIEWMODEL, CUANDO PASEMOS POR EL ONCREATEVIEW, NOS VA A CREAR EL VIEWMODEL
+        //val model = ViewModelProvider(this).get(ProductoViewModel::class.java)
+        val model: ProductoViewModel by viewModels()
+        model.obtenerProductos().observe(viewLifecycleOwner, {
+            createRecyclerView(it)
+        })
+
+        //HILOS SECUNDARIOS DE EJECUCION -->Threads destinados a cumplir una misión.CREAR UN HILO ES MUY COSTOSO
+        //Y POR ELLO SE CREAN LA CORUTINAS-->ES UN HILO, ES DECIR UN THREAD QUE YA ESTA CREADO
+
         loadListView()
-        createRecyclerView()
+        //createRecyclerView()
 
         //  CERRAR SESION
 
@@ -50,14 +62,14 @@ class ProductosFragment : Fragment() {
         /*
         createListView()
         */
-        createRecyclerView()
+        //createRecyclerView()
 
 
     }
 
-    private fun createRecyclerView() {
+    private fun createRecyclerView(productos: List<Producto>) {
         //apply es para el patron builder
-        val mAdapter = RecyclerViewAdapter(cargarProductos())
+        val mAdapter = RecyclerViewAdapter(productos as MutableList<Producto>)
         val recyclerView = binding!!.productosRecyclerViewFragment
         recyclerView.apply {
             //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
@@ -85,30 +97,8 @@ class ProductosFragment : Fragment() {
 
     }*/
 
-    private fun cargarProductos(): List<Producto> {
-
-        val productos = mutableListOf<Producto>()
-
-
-        productos.add(Producto(1, "galletas dinosaurios", "gullon", "galletas de cereales 250 g", "galletas_principe", 1.55, 3.95))
-        productos.add(Producto(2, "cereales chocolate", "kollbram", "cereales de chocolate con leche 500 g", "galletas_principe", 1.22, 2.85))
-        productos.add(Producto(3, "cereale integrales sin gluten", "hacendado", "cereales sin gluten 450 g ", "galletas_principe", 0.65, 1.58))
-        productos.add(Producto(4, "galletas cookies", "gullon", "galletas de trigo con chocolate 250 g", "galletas_principe", 0.85, 1.85))
-        productos.add(Producto(5, "estrellas de chocolate", "lu principe", "estrella de galletas de chocolate 150 g", "galletas_principe", 0.95, 1.18))
-        productos.add(Producto(6, "galletas oreo original", "mondelez", "pack galletas oreo 154 g", "galletas_principe", 0.33, 1.05))
-        productos.add(Producto(7, "galletas de chocolate", "principe", "deliciosas galletas de chocolate 300 g", "galletas_principe", 0.45, 2.40))
-        productos.add(Producto(8, "galleta choco flakes", "cuetara", "galletas de choco leche 550 g", "galletas_principe", 0.65, 3.18))
-        productos.add(Producto(9, "galleta principe mini", "principe", "galleta de chocolate 160 g", "galletas_principe", 0.55, 2.30))
-        productos.add(Producto(10, "galleta chips ahoy", "chips ahoy", "irresistibles con chocolate 125 g", "galletas_principe", 0.70, 1.18))
-        productos.add(Producto(11, "galletas con naranja", "flora", "galletas de cereales 160 g", "galletas_principe", 0.45, 1.65))
-        productos.add(Producto(12, "galletas de nocilla", "nocilla", "galletas originales de nocilla 120 g", "galletas_principe", 0.85, 2.74))
-        productos.add(Producto(13, "galletas de café", "reglero", "café regelo colombianos 260 g", "galletas_principe", 0.95, 3.52))
-        productos.add(Producto(14, "galletas bio", "gullón", "bio organic digestive 270 g", "galletas_principe", 0.89, 3.29))
-
-
-
+    /*private fun cargarProductos(): List<Producto> {
         return productos
 
-
-    }
+    }*/
 }
