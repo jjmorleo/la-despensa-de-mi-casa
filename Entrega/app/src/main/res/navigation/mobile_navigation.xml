@@ -12,14 +12,49 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.jjmorillo.ladespensademicasa.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
-
-    <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.jjmorillo.ladespensademicasa.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/nav_frutasVerdurasFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.frutasverduras.FrutasVerdurasFragment"
+        android:label="Frutas y Verduras"
+        tools:layout="@layout/fragment_frutas_verduras" />
+    <fragment
+        android:id="@+id/nav_carnesFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.carnes.CarnesFragment"
+        android:label="Carnes"
+        tools:layout="@layout/fragment_carnes" />
+    <fragment
+        android:id="@+id/nav_pescadosFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.pescados.PescadosFragment"
+        android:label="Pescados"
+        tools:layout="@layout/fragment_pescados" />
+    <fragment
+        android:id="@+id/nav_panBolleriaFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.panbolleria.PanBolleriaFragment"
+        android:label="Pan y Bollería"
+        tools:layout="@layout/fragment_pan_bolleria" />
+    <fragment
+        android:id="@+id/nav_alimentacionFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.alimentacion.AlimentacionFragment"
+        android:label="Alimentación"
+        tools:layout="@layout/fragment_alimentacion" />
+    <fragment
+        android:id="@+id/nav_bebidasFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.bebidas.BebidasFragment"
+        android:label="Bebidas"
+        tools:layout="@layout/fragment_bebidas" />
+    <fragment
+        android:id="@+id/nav_drogueriaLimpiezaFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.droguerialimpieza.DrogueriaLimpiezaFragment"
+        android:label="Droguería y Limpieza"
+        tools:layout="@layout/fragment_drogueria_limpieza" />
+    <fragment
+        android:id="@+id/nav_lacteosFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.lacteos.LacteosFragment"
+        android:label="Lácteos"
+        tools:layout="@layout/fragment_lacteos" />
+
 </navigation>

@@ -8,13 +8,42 @@
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
             android:title="@string/menu_home" />
-        <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_gallery" />
+        
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="@string/menu_slideshow" />
+        <item
+            android:id="@+id/nav_frutasVerdurasFragment"
+            android:icon="@raw/fruta"
+            android:title="Frutas y Verduras" />
+        <item
+            android:id="@+id/nav_carnesFragment"
+            android:icon="@raw/carne"
+            android:title="Carnes" />
+        <item
+            android:id="@+id/nav_pescadosFragment"
+            android:icon="@raw/pescado"
+            android:title="Pescados" />
+        <item
+            android:id="@+id/nav_panBolleriaFragment"
+            android:icon="@raw/pan"
+            android:title="Pan y Bollería" />
+        <item
+            android:id="@+id/nav_alimentacionFragment"
+            android:icon="@raw/alimentos"
+            android:title="Alimentación" />
+        <item
+            android:id="@+id/nav_bebidasFragment"
+            android:icon="@raw/bebidas"
+            android:title="Bebidas" />
+        <item
+            android:id="@+id/nav_drogueriaLimpiezaFragment"
+            android:icon="@raw/limpieza"
+            android:title="Droguería y Limpieza" />
+        <item
+            android:id="@+id/nav_lacteosFragment"
+            android:icon="@raw/yogurt"
+            android:title="Lácteos" />
     </group>
 </menu>

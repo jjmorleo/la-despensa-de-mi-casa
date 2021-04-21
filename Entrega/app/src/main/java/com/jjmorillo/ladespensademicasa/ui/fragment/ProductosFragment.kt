@@ -1,16 +1,12 @@
 package com.jjmorillo.ladespensademicasa.ui.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -18,6 +14,7 @@ import com.google.firebase.ktx.Firebase
 import com.jjmorillo.ladespensademicasa.adapters.RecyclerViewAdapter
 import com.jjmorillo.ladespensademicasa.databinding.FragmentProductosBinding
 import com.jjmorillo.ladespensademicasa.models.Producto
+import com.jjmorillo.ladespensademicasa.viewModels.ProductoViewModel
 
 
 class ProductosFragment : Fragment() {
@@ -62,7 +59,7 @@ class ProductosFragment : Fragment() {
         /*
         createListView()
         */
-        //createRecyclerView()
+     
 
 
     }

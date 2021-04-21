@@ -1,4 +1,8 @@
 package com.jjmorillo.ladespensademicasa.viewModels
 
-class UsuarioViewModel {
+
+import androidx.lifecycle.ViewModel
+
+class UsuarioViewModel: ViewModel() {
+
 }

@@ -5,10 +5,11 @@
     android:layout_height="match_parent"
     tools:context=".ui.droguerialimpieza.DrogueriaLimpiezaFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/fragment_drogueria_limpieza_text_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="Estoy en el departamento de Doguería" />
 
 </FrameLayout>

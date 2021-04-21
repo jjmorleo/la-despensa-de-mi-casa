@@ -1,4 +1,10 @@
 package com.jjmorillo.ladespensademicasa.database
 
-class AppDatabase {
-}
+import androidx.room.Database
+import androidx.room.RoomDatabase
+
+//@Database
+/*
+abstract class AppDatabase: RoomDatabase() {
+
+}*/

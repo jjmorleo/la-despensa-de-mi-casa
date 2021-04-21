@@ -1,11 +1,10 @@
 package com.jjmorillo.ladespensademicasa.ui.activities
 
-import android.content.Intent
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.ActivityMainBinding
-import com.jjmorillo.ladespensademicasa.ui.fragment.ProductosFragment
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding

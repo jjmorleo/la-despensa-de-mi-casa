@@ -25,6 +25,8 @@
             android:scaleType="centerCrop"
             android:src="@drawable/galletas" />
 
+        <!-- Text-->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -60,6 +62,7 @@
                 android:textAllCaps="true"
                 android:textAppearance="?attr/textAppearanceBody2" />
 
+
         </LinearLayout>
 
         <View
@@ -70,6 +73,7 @@
             android:layout_marginEnd="16dp"
             android:background="@color/color_error" />
 
+            <!--Button-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
