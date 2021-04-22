@@ -31,7 +31,7 @@ class AlimentacionFragment : Fragment() {
         auth = Firebase.auth
 
         val model: ProductoViewModel by viewModels()
-        model.obtenerOfertas().observe(viewLifecycleOwner, {
+        model.obtenerAlimentacion().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
         // Inflate the layout for this fragment

@@ -6,11 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.adapters.RecyclerViewAdapter
 import com.jjmorillo.ladespensademicasa.databinding.FragmentProductosBinding
 import com.jjmorillo.ladespensademicasa.models.Producto
@@ -32,7 +34,7 @@ class ProductosFragment : Fragment() {
         //ESTO SERIA PARA INICIALIZAR EL VIEWMODEL, CUANDO PASEMOS POR EL ONCREATEVIEW, NOS VA A CREAR EL VIEWMODEL
         //val model = ViewModelProvider(this).get(ProductoViewModel::class.java)
         val model: ProductoViewModel by viewModels()
-        model.obtenerOfertas().observe(viewLifecycleOwner, {
+        model.obtenerNovedades().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
 

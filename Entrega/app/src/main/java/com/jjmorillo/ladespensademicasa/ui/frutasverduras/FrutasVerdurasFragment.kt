@@ -40,7 +40,7 @@ private var _binding:FragmentFrutasVerdurasBinding?=null
     private fun createRecyclerView(productos: List<Producto>) {
         //apply es para el patron builder
         val mAdapter = RecyclerViewAdapter(productos as MutableList<Producto>)
-        val recyclerView = binding!!.frutasVerdurasRecyclerViewFragment
+        val recyclerView = binding.frutasVerdurasRecyclerViewFragment
         recyclerView.apply {
             //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
             //layoutManager = GridLayoutManager(requireContext(), RecyclerView.VERTICAL, false)

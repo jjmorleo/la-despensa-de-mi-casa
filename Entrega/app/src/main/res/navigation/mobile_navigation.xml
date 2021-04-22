@@ -49,7 +49,7 @@
     <fragment
         android:id="@+id/productosFragment2"
         android:name="com.jjmorillo.ladespensademicasa.ui.fragment.ProductosFragment"
-        android:label="Ofertas"
+        android:label="Novedades"
         tools:layout="@layout/fragment_productos" />
 
 </navigation>

@@ -66,6 +66,27 @@ class ProductoViewModel : ViewModel() {
     fun obtenerProductos(): LiveData<List<Producto>> {
         return _productos
     }
+
+    fun obtenerAlimentacion():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Mango", "FRUTA", "Mango nacional a granel 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/mango.jpg?alt=media&token=821eab35-bcb4-4c2b-9a85-9ba1844e2da8", 1.12, 2.25))
+        productos.add(Producto(2, "Kiwi", "ZESPRI", "Kiwi Zespri 1 Kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/kiwizespri.jpg?alt=media&token=552202bb-c089-49c0-80b1-341ad96bb24e", 3.99, 3.99))
+        productos.add(Producto(3, "Piña", "MONTE", "Piña del Monte premium pieza 1,5 Kg aprox ", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pi%C3%B1a.jpg?alt=media&token=f68691c6-0767-4b51-83f0-ea1cebd39c35", 1.49, 2.23))
+        productos.add(Producto(4, "Calabacín", "VERDURA", "Calabacín la despensa a granel 1 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/calabacin.jpg?alt=media&token=58a4e297-1f90-43a4-84fc-132e7fa0205e", 1.19, 1.19))
+        productos.add(Producto(5, "Calabaza sepallo", "VERDURA", "Calabaza sepallo a granel 1,5 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/calabaza.jpg?alt=media&token=795df4f4-56e2-47c7-9f5b-12c5c9dc9469", 1.25, 1.87))
+        productos.add(Producto(6, "Cebolla dulce selección", "FUENTE", "Cebolla dulce selección 1 Kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/cebollafuente.jpg?alt=media&token=03f52d25-fc15-43cd-a773-5c4541f6c230", 1.99, 1.99))
+        productos.add(Producto(7, "Aguacate", "FRUTA", "Aguacate de origen nacional 500 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/aguacate.jpg?alt=media&token=20e670ad-5ea0-4422-a177-a5bd92da08b8", 4.00, 2.00))
+        productos.add(Producto(8, "Espárrago verde", "VERDURAS", "Espárrago verde manojo de 300 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/esparrago.jpg?alt=media&token=a4b2adda-7a72-49c4-8ffe-7dec2d1f6c32", 3.83, 1.15))
+        productos.add(Producto(9, "Berengena", "VERDURAS", "Berenjena a granel 500 g arpox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/berengena.jpg?alt=media&token=a21d6c36-4ba3-4ed8-aece-27a16729c623", 3.83, 1.15))
+        productos.add(Producto(10, "Berengena", "VERDURAS", "Berenjena a granel 500 g arpox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/berengena.jpg?alt=media&token=a21d6c36-4ba3-4ed8-aece-27a16729c623", 3.83, 1.15))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
+    }
     fun obtenerFrutasVerduras():LiveData<List<Producto>>{
 
         val liveData = MutableLiveData<List<Producto>>()
@@ -80,14 +101,35 @@ class ProductoViewModel : ViewModel() {
         productos.add(Producto(6, "Cebolla dulce selección", "FUENTE", "Cebolla dulce selección 1 Kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/cebollafuente.jpg?alt=media&token=03f52d25-fc15-43cd-a773-5c4541f6c230", 1.99, 1.99))
         productos.add(Producto(7, "Aguacate", "FRUTA", "Aguacate de origen nacional 500 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/aguacate.jpg?alt=media&token=20e670ad-5ea0-4422-a177-a5bd92da08b8", 4.00, 2.00))
         productos.add(Producto(8, "Espárrago verde", "VERDURAS", "Espárrago verde manojo de 300 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/esparrago.jpg?alt=media&token=a4b2adda-7a72-49c4-8ffe-7dec2d1f6c32", 3.83, 1.15))
-        productos.add(Producto(8, "Berengena", "VERDURAS", "Berenjena a granel 500 g arpox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/berengena.jpg?alt=media&token=a21d6c36-4ba3-4ed8-aece-27a16729c623", 3.83, 1.15))
+        productos.add(Producto(9, "Berengena", "VERDURAS", "Berenjena a granel 500 g arpox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/berengena.jpg?alt=media&token=a21d6c36-4ba3-4ed8-aece-27a16729c623", 3.83, 1.15))
+        productos.add(Producto(10, "Plátano", "COPLACA", "Plátano de Canarias 500 g arpox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/platano.jpg?alt=media&token=90896c21-7f5d-4c9b-ab43-7683cb059e74", 3.95, 2.00))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
+    }
+    fun obtenerCarnes():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Preparado de carne picada", "AVINATUR", "Preparado de carne picada de vacuno 2x450 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/carnepicada.jpg?alt=media&token=585dd623-59fa-4d10-bad8-8bed90db2374", 5.21, 4.69))
+        productos.add(Producto(2, "Lomo de cerdo adobado", "PAVOFRIO", "Lomo de cerdo adobado fileteado 650 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/lomoadobado.jpg?alt=media&token=2b5fc3a1-5c12-43fc-92e9-df382e6e2e7e", 6.50, 4.22))
+        productos.add(Producto(3, "Pechuga de pollo", "PAVISO", "Pechuga de pollo certificado en filetes 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pechugapollo.jpg?alt=media&token=52d951e2-df39-4c9e-8777-2d458aa47bad", 8.29, 4.14))
+        productos.add(Producto(4, "Entrecot de vacuno", "PAVISO", "Entrecot de vacuno para la piedra 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/entrcotternera.jpg?alt=media&token=4c5ac398-d85c-4f06-84df-b5845c63ba1a", 10.95, 5.45))
+        productos.add(Producto(5, "Trozo lomo cerdo ", "AVINATUR", "Trozo de lomo de cerdo 1,2 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/trozolomocerdo.jpg?alt=media&token=b6145be6-220b-4bc1-a0eb-a36be36cfb76", 3.95, 4.74))
+        productos.add(Producto(6, "Pechuga de pollo campero", "PAVISO", "Pechuga de pollo campero fileteada 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pechugacampero.jpg?alt=media&token=2a68006a-7f1e-4244-b336-8bb84436ce64", 13.99, 6.99))
+        productos.add(Producto(7, "Hamburguesa añojo", "AVINATUR", "Hamburguesa añojo 6x90 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/hamburguesaa%C3%B1ojo.jpg?alt=media&token=7e80d3c2-f77e-4714-8d3c-0e3290537243", 6.28, 3.39))
+        productos.add(Producto(8, "Chuleta aguja de cerdo ", "AVINATUR", "Chuleta aguja de cerdo 1 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/chuletacerdo.jpg?alt=media&token=085c80e3-1215-49b8-bec3-5d01f399c0ac", 3.99, 3.99))
+        productos.add(Producto(9, "Solomillo vacuno", "CANALVISO", "solomillo vacuno 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/solomillovacuno.jpg?alt=media&token=be53cfa4-3993-4ea5-b67f-5df2d19ad14f", 19.95, 9.97))
+        productos.add(Producto(10, "Jamoncitos de pollo", "AVINATUR", "Jamoncitos de pollo 1 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/jamoncitospollo.jpg?alt=media&token=19b0bcb4-6948-4d7c-9bb8-176c7321f939", 3.45, 3.45))
 
         liveData.postValue(productos)//MAIN THREAD
         return liveData
 
     }
 
-    fun obtenerOfertas(): LiveData<List<Producto>> {
+    fun obtenerNovedades(): LiveData<List<Producto>> {
         val liveData = MutableLiveData<List<Producto>>()
 
 

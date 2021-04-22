@@ -31,7 +31,7 @@ class PescadosFragment : Fragment() {
         auth = Firebase.auth
 
         val model: ProductoViewModel by viewModels()
-        model.obtenerOfertas().observe(viewLifecycleOwner, {
+        model.obtenerNovedades().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
         // Inflate the layout for this fragment
@@ -40,7 +40,7 @@ class PescadosFragment : Fragment() {
     private fun createRecyclerView(productos: List<Producto>) {
         //apply es para el patron builder
         val mAdapter = RecyclerViewAdapter(productos as MutableList<Producto>)
-        val recyclerView = binding!!.pescadosRecyclerViewFragment
+        val recyclerView = binding.pescadosRecyclerViewFragment
         recyclerView.apply {
             //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
             //layoutManager = GridLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
