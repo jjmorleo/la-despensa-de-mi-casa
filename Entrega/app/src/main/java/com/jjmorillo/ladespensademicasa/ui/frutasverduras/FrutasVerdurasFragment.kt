@@ -30,7 +30,7 @@ private var _binding:FragmentFrutasVerdurasBinding?=null
         auth = Firebase.auth
 
         val model: ProductoViewModel by viewModels()
-        model.obtenerofertas().observe(viewLifecycleOwner, {
+        model.obtenerFrutasVerduras().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
 

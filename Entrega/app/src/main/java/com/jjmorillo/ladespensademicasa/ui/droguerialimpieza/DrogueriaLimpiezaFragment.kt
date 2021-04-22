@@ -31,7 +31,7 @@ class DrogueriaLimpiezaFragment : Fragment() {
         auth = Firebase.auth
 
         val model: ProductoViewModel by viewModels()
-        model.obtenerofertas().observe(viewLifecycleOwner, {
+        model.obtenerOfertas().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
         // Inflate the layout for this fragment
