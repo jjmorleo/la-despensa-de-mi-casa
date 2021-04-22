@@ -53,9 +53,15 @@ class NavigationDrawer : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.navigation_drawer, menu)
+        //Para hacer logout en el Menú action bar en los tres puntitos
+        /*binding.navView.menu.findItem(R.id.action_logout).setOnMenuItemClickListener{
+            cerrarSesion()
+        }*/
         return true
     }
+    fun cerrarSesion(){
 
+    }
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
