@@ -80,7 +80,7 @@ class ProductoViewModel : ViewModel() {
         productos.add(Producto(6, "galletas oreo original", "mondelez", "pack galletas oreo 154 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/galletasoreo.jpg?alt=media&token=8dbc8715-eb7e-4984-a8bf-91fc25ff1944", 6.80, 2.99))
         productos.add(Producto(7, "galletas de chocolate", "carrefour", "Galletas chocolate con leche Digestive Carrefour 300 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/galletaschocolate.jpg?alt=media&token=aa6773d4-a8c7-4e40-af62-114059812902", 2.67, 0.80))
         productos.add(Producto(8, "Galleta flakes choco", "cuetara", "Galleta flakes choco cuetara 550g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/galletachocoflakes.jpg?alt=media&token=1cd8d80d-78f4-43d5-9976-534783568433", 4.45, 2.45))
-        
+
 
         liveData.postValue(productos)//MAIN THREAD
         return liveData

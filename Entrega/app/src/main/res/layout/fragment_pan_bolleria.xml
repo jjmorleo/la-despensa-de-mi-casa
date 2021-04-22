@@ -6,10 +6,6 @@
     tools:context=".ui.panbolleria.PanBolleriaFragment">
 
 
-    <TextView
-        android:id="@+id/fragment_pan_bolleria_text_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Estoy en el departamento de Pan y Bollería" />
+
 
 </FrameLayout>
