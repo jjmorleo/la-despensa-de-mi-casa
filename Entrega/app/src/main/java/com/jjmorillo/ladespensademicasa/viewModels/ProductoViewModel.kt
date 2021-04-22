@@ -32,6 +32,7 @@ class ProductoViewModel : ViewModel() {
 
         //VAMOS A CREAR UNA CORUTINA
         viewModelScope.launch {
+            //CONTEXTO DE ENTRADA Y SALIDA
             withContext(Dispatchers.IO) {
                 val productos = mutableListOf<Producto>() //LISTA MUTABLE
                 productos.add(Producto(1, "Galletas Dinosaurus", "ARTIACH", "Galletas Dinosaurus Huevo Artiach 140 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/galletasdinosaurus.jpg?alt=media&token=dd4ac846-d676-4ef6-9367-9b00ce1f7a37", 10.00, 1.40))
@@ -129,6 +130,7 @@ class ProductoViewModel : ViewModel() {
 
     }
 
+
     fun obtenerNovedades(): LiveData<List<Producto>> {
         val liveData = MutableLiveData<List<Producto>>()
 
@@ -146,6 +148,26 @@ class ProductoViewModel : ViewModel() {
 
         liveData.postValue(productos)//MAIN THREAD
         return liveData
+    }
+    fun obtenerPescados():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Lubina", "PESCADO", "Lubina de ración 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/lubina.jpg?alt=media&token=16ec7cf7-79ed-43b4-800f-35d8c879af54", 6.45, 3.22))
+        productos.add(Producto(2, "Dorada", "PESCADO", "Dorada de ración 500 g aprox.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/dorada.jpg?alt=media&token=94598e24-cfa3-4bed-8c76-8db6a04fbee7", 7.45, 3.75))
+        productos.add(Producto(3, "Lomo Atún", "PESCADO", "Lomo de atún 300 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/lomoatun.jpg?alt=media&token=e825a791-a613-484f-bbdc-b4787e770f58", 10.90, 3.27))
+        productos.add(Producto(4, "Lenguado", "PESCADO", "Lenguado ración 125 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/lenguado.jpg?alt=media&token=0bc6447b-ac4b-495f-9c75-b52eaab606db", 11.90, 1.49))
+        productos.add(Producto(5, "Gallo", "PESCADO", "Gallo ración 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/gallo.jpg?alt=media&token=6829d449-7d33-4805-a8cd-b3e78ece3f64", 7.99, 3.99))
+        productos.add(Producto(6, "Boquerones", "PESCADO", "Boquerones 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/boquerones.jpg?alt=media&token=4caeaef6-4921-435c-a797-a79d45fa2d5d", 3.90, 1.95))
+        productos.add(Producto(7, "Bacaladilla", "PESCADO'S", "Bacaladilla 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/bacaladilla.jpg?alt=media&token=c96528dd-f177-473a-994b-5b9cbb5c5dc9", 1.95, 0.99))
+        productos.add(Producto(8, "Trucha", "PESCADO", "Trucha asalmonada Círculo de Calidad 500 g aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/trucha.jpg?alt=media&token=38b21256-5908-41a9-8e60-980f3b271f07", 6.25, 3.12))
+        productos.add(Producto(9, "Salmón", "PESCADO", "Salmón Calidad y Origen Carrefour 1 ud de 3 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/salmon.jpg?alt=media&token=a7a2d18b-7635-4ffd-add2-6da3e1b7ac52", 8.75, 21.87))
+        productos.add(Producto(10, "Pescadilla", "PESCADO", "Pescadilla fina 1 kg aprox", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pescadilla.jpg?alt=media&token=52ffbc06-5484-4d6c-a405-85e0f39647e9", 5.90, 5.90))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
     }
 
 

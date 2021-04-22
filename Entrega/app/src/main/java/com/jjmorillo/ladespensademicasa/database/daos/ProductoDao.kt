@@ -1,8 +1,9 @@
 package com.jjmorillo.ladespensademicasa.database.daos
 
 import androidx.room.*
+import com.jjmorillo.ladespensademicasa.database.entities.Producto
 
-/*
+
 @Dao
 interface ProductoDao {
 
@@ -17,4 +18,4 @@ interface ProductoDao {
 
     @Delete
     suspend fun delete(producto: Producto)
-}*/
+}
