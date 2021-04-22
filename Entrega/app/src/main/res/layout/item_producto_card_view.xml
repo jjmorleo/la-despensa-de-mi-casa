@@ -8,6 +8,7 @@
     android:elevation="8dp"
     android:clickable="true"
     android:orientation="vertical"
+    app:cardBackgroundColor="@color/color_secondary_variant"
     app:cardCornerRadius="15dp"
     app:strokeColor="@color/color_secondary"
     app:strokeWidth="1dp">

@@ -19,19 +19,26 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.FragmentLoginBinding
+import com.jjmorillo.ladespensademicasa.ui.activities.MainActivity
+import com.jjmorillo.ladespensademicasa.ui.activities.NavigationDrawer
 
+enum class ProviderType{
+    BASIC
+}
 class LoginFragment : Fragment() {
     private var _binding: FragmentLoginBinding? = null
-    private val binding get() = _binding!!
     private lateinit var auth: FirebaseAuth
     private var TAG = "LoginFragment"
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
+
         _binding = FragmentLoginBinding.inflate(inflater, container, false)
+        val binding  = _binding!!
         val view = binding.root
+
         auth = Firebase.auth
         // Inflate the layout for this fragment
 
@@ -46,47 +53,67 @@ class LoginFragment : Fragment() {
             val pass1 = binding.mainTiePassword
             if (email.obtenerTexto().isNullOrBlank()) {
 
-                Snackbar.make(view, "Si el email no es correcto o esta vacio rellene el campo ", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(
+                    view,
+                    "Si el email no es correcto o esta vacio rellene el campo ",
+                    Snackbar.LENGTH_LONG
+                ).show()
                 return@setOnClickListener
             }
 
             if (pass1.obtenerTexto().isNullOrBlank()) {
 
-                Snackbar.make(view, "Si la contraseña no es correcta o esta vacia rellene el campo ", Snackbar.LENGTH_LONG).show()
+                Snackbar.make(
+                    view,
+                    "Si la contraseña no es correcta o esta vacia rellene el campo ",
+                    Snackbar.LENGTH_LONG
+                ).show()
                 return@setOnClickListener
 
             }
-            val sharedPref= activity?.getPreferences(Context.MODE_PRIVATE)!!
-            with(sharedPref.edit()){
+
+            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)!!
+            with(sharedPref.edit()) {
                 putBoolean("logueado", true)
                 apply()
             }
+            //NavHostFragment.findNavController(this).navigate(R.id.action_to_mobile_navigation)
 
 
             auth.signInWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
-                    .addOnCompleteListener(requireActivity()) { task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            //Log.d(TAG, "signInWithEmail:success")
-                            goToProducts()
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
+                        // Sign in success, update UI with the signed-in user's information
+                        //Log.d(TAG, "signInWithEmail:success")
+                        goToProducts()
 
-                        } else {
-                            Log.d(TAG, task.exception.toString())
-                            when (task.exception) {
-                                is FirebaseAuthInvalidUserException -> {
-                                    Snackbar.make(view, "Debes registrarte para acceder", Snackbar.LENGTH_LONG).show()
-                                }
-                                else -> {
-                                    Snackbar.make(view, "Error al iniciar sesión", Snackbar.LENGTH_LONG).show()
-                                }
+                    } else {
+                        Log.d(TAG, task.exception.toString())
+                        when (task.exception) {
+
+                            is FirebaseAuthInvalidUserException -> {
+
+                                Snackbar.make(
+                                    view,
+                                    "Debes registrarte para acceder",
+                                    Snackbar.LENGTH_LONG
+                                ).show()
+                            }
+                            else -> {
+
+
+                                Snackbar.make(view, "Error al iniciar sesión", Snackbar.LENGTH_LONG)
+                                    .show()
                             }
 
-
-                            // If sign in fails, display a message to the user.
-
-
                         }
+
+
+                        // If sign in fails, display a message to the user.
+
+
                     }
+                }
 
 
         }
@@ -101,6 +128,13 @@ class LoginFragment : Fragment() {
             goToProducts()
         }
     }
+
+    //PARA CERRAR SESION SERIA COMO SE MUESTRA ACONTINUACION
+
+    /* binding.cerraSesion.setOnClickListener{
+         auth.signOut()
+         requireActivity().finish()
+     }*/
     /*private fun signIn(email: String, pass1: String){
         Log.d(TAG, "signIn:$email")
         if (!validateFrom()){
@@ -121,8 +155,12 @@ class LoginFragment : Fragment() {
     }
 
     fun goToProducts() {
-        binding.mainMbtIniciarSeccion.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.action_to_productosFragment)
+
+        _binding!!.mainMbtIniciarSeccion.setOnClickListener {
+            //NavHostFragment.findNavController(this).navigate(R.id.action_to_productosFragment)
+            val intent= Intent(requireContext(), NavigationDrawer::class.java)
+            startActivity(intent)
+            requireActivity().finish()
         }
 
         /*val intent = Intent(this.context, ProductosFragment::class.java)
@@ -151,6 +189,8 @@ class LoginFragment : Fragment() {
 
          return valid
      }*/
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

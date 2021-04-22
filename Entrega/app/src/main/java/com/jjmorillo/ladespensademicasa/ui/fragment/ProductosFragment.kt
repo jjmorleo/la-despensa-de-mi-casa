@@ -32,7 +32,7 @@ class ProductosFragment : Fragment() {
         //ESTO SERIA PARA INICIALIZAR EL VIEWMODEL, CUANDO PASEMOS POR EL ONCREATEVIEW, NOS VA A CREAR EL VIEWMODEL
         //val model = ViewModelProvider(this).get(ProductoViewModel::class.java)
         val model: ProductoViewModel by viewModels()
-        model.obtenerProductos().observe(viewLifecycleOwner, {
+        model.obtenerofertas().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
 

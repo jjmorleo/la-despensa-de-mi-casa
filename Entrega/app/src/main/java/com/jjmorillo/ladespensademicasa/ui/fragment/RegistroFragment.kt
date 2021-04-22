@@ -11,6 +11,8 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthWeakPasswordException
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jjmorillo.ladespensademicasa.R
@@ -23,11 +25,11 @@ class RegistroFragment : Fragment() {
     private val binding: FragmentRegistroBinding
         get() = _binding!!
     private lateinit var auth: FirebaseAuth
-    private var TAG = "FRAGMENT_REGISTRO"
+    private var TAG = "REGISTRO_FRAGMENT"
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentRegistroBinding.inflate(inflater, container, false)
         val view = binding.root
@@ -44,33 +46,33 @@ class RegistroFragment : Fragment() {
 
             if (nombre.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        "Revisa los campos, no pueden estar nulos",
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (email.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        "Revisa los campos, no pueden estar nulos",
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (pass1.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        "Revisa los campos, no pueden estar nulos",
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
             if (pass2.obtenerTexto().isNullOrBlank()) {
                 Snackbar.make(
-                        view,
-                        "Revisa los campos, no pueden estar nulos",
-                        Snackbar.LENGTH_SHORT
+                    view,
+                    "Revisa los campos, no pueden estar nulos",
+                    Snackbar.LENGTH_SHORT
                 ).show()
                 return@setOnClickListener
             }
@@ -80,35 +82,36 @@ class RegistroFragment : Fragment() {
             }
 
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
-                    .addOnCompleteListener(requireActivity()) { task ->
-                        if (task.isSuccessful) {
-                            binding.registroBtnRegistrar.setOnClickListener {
-                                NavHostFragment.findNavController(this).navigate(R.id.action_to_loginFragment)
-                            }
+                .addOnCompleteListener(requireActivity()) { task ->
+                    if (task.isSuccessful) {
 
-                        } else {
-                            when (task.exception) {
-                                is FirebaseAuthWeakPasswordException -> {
-                                    Log.d(TAG, "El usuario ha sido registrado")
-                                    Snackbar.make(
-                                            view,
-                                            "la contraseña es muy débil, debe tener 6 caracters",
-                                            Snackbar.LENGTH_LONG
-                                    ).show()
-                                }
-                                else -> {
-                                    Log.d(TAG, "El usuario debe registrase")
-                                    Snackbar.make(
-                                            view,
-                                            "No se ha podido registrar el usuario de forma correcta",
-                                            Snackbar.LENGTH_LONG
-                                    ).show()
-
-                                }
-                            }
+                        binding.registroBtnRegistrar.setOnClickListener {
+                            NavHostFragment.findNavController(this)
+                                .navigate(R.id.action_to_loginFragment)
                         }
 
+                    } else {
+
+                        when (task.exception) {
+                            is FirebaseAuthWeakPasswordException -> {
+                                Snackbar.make(
+                                    view,
+                                    "la contraseña es muy débil, debe tener 6 caracters",
+                                    Snackbar.LENGTH_LONG
+                                ).show()
+                            }
+                            else -> {
+                                Snackbar.make(
+                                    view,
+                                    "No se ha podido registrar el usuario de forma correcta",
+                                    Snackbar.LENGTH_LONG
+                                ).show()
+
+                            }
+                        }
                     }
+
+                }
 
         }
 
@@ -118,9 +121,12 @@ class RegistroFragment : Fragment() {
         return view
     }
 
+    //ESTO SERIA PARA OBTENER EL TEXTO MAS RAPIDO Y NO TENER QUE HACER EL TEXT.TOSTRING
     fun TextInputEditText.obtenerTexto(): String {
         return text.toString()
     }
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()

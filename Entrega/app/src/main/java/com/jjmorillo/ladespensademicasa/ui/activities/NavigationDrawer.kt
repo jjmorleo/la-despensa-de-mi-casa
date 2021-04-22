@@ -2,8 +2,6 @@ package com.jjmorillo.ladespensademicasa.ui.activities
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -46,7 +44,7 @@ class NavigationDrawer : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.nav_home, R.id.nav_slideshow, R.id.nav_frutasVerdurasFragment, R.id.nav_carnesFragment, R.id.nav_pescadosFragment, R.id.nav_panBolleriaFragment, R.id.nav_alimentacionFragment, R.id.nav_bebidasFragment, R.id.nav_lacteosFragment
+             R.id.nav_frutasVerdurasFragment, R.id.nav_carnesFragment, R.id.nav_pescadosFragment, R.id.nav_panBolleriaFragment, R.id.nav_alimentacionFragment, R.id.nav_bebidasFragment, R.id.nav_lacteosFragment, R.id.nav_drogueriaLimpiezaFragment, R.id.productosFragment2
         ), drawerLayout)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)

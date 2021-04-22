@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@id/productosFragment2">
 
-    <fragment
+   <!-- <fragment
         android:id="@+id/nav_home"
         android:name="com.jjmorillo.ladespensademicasa.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
-
-    <fragment
+-->
+  <!--  <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.jjmorillo.ladespensademicasa.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_slideshow" />-->
     <fragment
         android:id="@+id/nav_frutasVerdurasFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.frutasverduras.FrutasVerdurasFragment"
@@ -56,5 +56,10 @@
         android:name="com.jjmorillo.ladespensademicasa.ui.lacteos.LacteosFragment"
         android:label="Lácteos"
         tools:layout="@layout/fragment_lacteos" />
+    <fragment
+        android:id="@+id/productosFragment2"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragment.ProductosFragment"
+        android:label="Ofertas"
+        tools:layout="@layout/fragment_productos" />
 
 </navigation>

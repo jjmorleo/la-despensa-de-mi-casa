@@ -1,6 +1,7 @@
 package com.jjmorillo.ladespensademicasa.ui.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.NavHostFragment
 import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.FragmentInitBinding
+import com.jjmorillo.ladespensademicasa.ui.activities.NavigationDrawer
 
 
 class InitFragment : Fragment() {
@@ -35,7 +37,9 @@ class InitFragment : Fragment() {
         val sharedPrefs = activity?.getPreferences(Context.MODE_PRIVATE)!!
         val logueado = sharedPrefs.getBoolean("logueado", false)
         if(logueado) {
-            NavHostFragment.findNavController(this).navigate(R.id.action_to_productosFragment)
+            val intent= Intent(requireContext(), NavigationDrawer::class.java)
+            startActivity(intent)
+            requireActivity().finish()
 
         }
 
