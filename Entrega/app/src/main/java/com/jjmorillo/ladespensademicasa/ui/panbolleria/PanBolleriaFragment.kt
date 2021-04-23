@@ -33,7 +33,7 @@ class PanBolleriaFragment : Fragment() {
         auth = Firebase.auth
 
         val model: ProductoViewModel by viewModels()
-        model.obtenerNovedades().observe(viewLifecycleOwner, {
+        model.obtenerPanBolleria().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
         // Inflate the layout for this fragment

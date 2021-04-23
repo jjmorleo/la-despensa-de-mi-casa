@@ -149,6 +149,29 @@ class ProductoViewModel : ViewModel() {
         liveData.postValue(productos)//MAIN THREAD
         return liveData
     }
+
+
+
+    fun obtenerPanBolleria():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Pan picos", "PANADERA", "Pan de picos la despensa 1 ud", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/panpicos.jpg?alt=media&token=ed30c493-6259-453a-8f42-66d1ef0fa8d6", 1.68, 0.57))
+        productos.add(Producto(2, "Pan de pueblo", "PANADERA", "Pan de pueblo sin aditivos 800 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/panpueblo.jpg?alt=media&token=949cd4bd-fc5e-4bba-bc33-d3b5ce8100d0", 1.44, 1.15))
+        productos.add(Producto(3, "Pan payés", "PANADERA", "Pan payés grande Hecho aquí Carrefour 800 gx", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/panpayes.jpg?alt=media&token=0aaa47a2-4973-4d84-9a97-de0976014af3", 2.55, 2.55))
+        productos.add(Producto(4, "Pan antaño", "PANADERA", "Pan de antaño Carrefour 1 ud", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pananta%C3%B1o.jpg?alt=media&token=1704a70a-fa6b-42a4-aa46-d2b00e4c9c96", 3.62, 1.45))
+        productos.add(Producto(5, "Pan gallego ", "PANADERA", "Pan gallego de cereales sin lactosa 70 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pangallego.jpg?alt=media&token=bed68339-f2a6-4768-9efa-ff707525fd24", 4.14, 0.29))
+        productos.add(Producto(6, "Berlina bombón", "PANADERA", "Berlinas bombón 4 ud", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/berlinabombon.jpg?alt=media&token=08e22e45-04de-4870-beff-6f8c3d6bc1f0", 5.37, 1.15))
+        productos.add(Producto(7, "Bretzel de chocolate", "PANADERA", "Bretzel de chocolate y mantequilla 100 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/brezelchocolate.jpg?alt=media&token=da584ed4-06ea-4150-b75f-ac68f475950c", 8.50, 0.85))
+        productos.add(Producto(8, "Magdalena", "PANADERA", "Magdalenas caseras 420 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/magdalena.jpg?alt=media&token=f08a96a7-382c-43a3-a66d-2ef4f79212ab", 7.12, 2.99))
+        productos.add(Producto(9, "Pastel manzana", "PANADERA", "Pastel de manzana 125 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/pastelmanzana.jpg?alt=media&token=c4913231-847c-43b6-811b-d40e9af2e0f1", 6.80, 0.85))
+        productos.add(Producto(10, "Bizcocho", "PANADERA", "Bizcocho casero 500 g", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/bizcocho.jpg?alt=media&token=3c98482b-1d6f-430d-82ad-61bed4aea04c", 6.00, 3.00))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
+    }
     fun obtenerPescados():LiveData<List<Producto>>{
 
         val liveData = MutableLiveData<List<Producto>>()
