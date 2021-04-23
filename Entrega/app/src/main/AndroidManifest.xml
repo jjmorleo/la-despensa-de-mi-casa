@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Base.MyTheme"
-        android:name=".aplication.App"
+        android:name=".application.App"
         >
         <activity
             android:name=".ui.activities.NavigationDrawer"

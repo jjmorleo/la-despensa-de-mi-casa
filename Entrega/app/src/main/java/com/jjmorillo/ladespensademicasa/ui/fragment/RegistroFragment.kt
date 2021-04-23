@@ -84,9 +84,8 @@ class RegistroFragment : Fragment() {
                 return@setOnClickListener
             }
            //LOS DATOS SON CORRECTOS VOY A GUARDAR LOS DATOS EN LA BASE DE DATOS
-
             val usuarioModel:UsuarioViewModel by viewModels ()
-            usuarioModel.save(Usuario(nombre.obtenerTexto(),email.obtenerTexto(),pass1.obtenerTexto()))
+            usuarioModel.save(Usuario(nombre.obtenerTexto(), email.obtenerTexto(), pass1.obtenerTexto()))
 
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
                 .addOnCompleteListener(requireActivity()) { task ->

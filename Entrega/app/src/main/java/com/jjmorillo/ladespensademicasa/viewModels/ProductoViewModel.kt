@@ -34,7 +34,7 @@ class ProductoViewModel : ViewModel() {
         viewModelScope.launch {
             //CONTEXTO DE ENTRADA Y SALIDA
             withContext(Dispatchers.IO) {
-                val productos = mutableListOf<Producto>() //LISTA MUTABLE
+                val productos = mutableListOf<Producto>() //LISTA MUTABLE, ESTO ES LO QUE NOS VA A DEVOLVER NUESTRA BASE DE DATOS
                 productos.add(Producto(1, "Galletas Dinosaurus", "ARTIACH", "Galletas Dinosaurus Huevo Artiach 140 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/galletasdinosaurus.jpg?alt=media&token=dd4ac846-d676-4ef6-9367-9b00ce1f7a37", 10.00, 1.40))
                 productos.add(Producto(2, "Cereales con chocolate belga", "kollbram", "Cereales con chocolate belga 375 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/cerealeschocolatebelga.jpg?alt=media&token=7a0cb975-4e7d-493e-bb9c-61fe0b957da2", 7.33, 2.75))
                 productos.add(Producto(3, "cereale integrales sin gluten", "hacendado", "cereales sin gluten 450 g ", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/cerealesintegraleseco.jpg?alt=media&token=586c03c5-17dd-41f2-b2b0-5282ed2bf3b8", 11.17, 3.35))

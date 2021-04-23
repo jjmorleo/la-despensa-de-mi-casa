@@ -1,4 +1,4 @@
-package com.jjmorillo.ladespensademicasa.aplication
+package com.jjmorillo.ladespensademicasa.application
 
 import android.app.Application
 import com.jjmorillo.ladespensademicasa.database.AppDatabase

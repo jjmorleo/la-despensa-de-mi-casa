@@ -10,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -21,6 +22,7 @@ import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.FragmentLoginBinding
 import com.jjmorillo.ladespensademicasa.ui.activities.MainActivity
 import com.jjmorillo.ladespensademicasa.ui.activities.NavigationDrawer
+import com.jjmorillo.ladespensademicasa.viewModels.UsuarioViewModel
 
 enum class ProviderType{
     BASIC
@@ -65,18 +67,39 @@ class LoginFragment : Fragment() {
 
                 Snackbar.make(
                     view,
-                    "Si la contraseña no es correcta o esta vacia rellene el campo ",
+                    "Si la contraseña/email no es correcto o esta vacia rellene el campo ",
                     Snackbar.LENGTH_LONG
                 ).show()
                 return@setOnClickListener
 
             }
 
-            val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)!!
-            with(sharedPref.edit()) {
-                putBoolean("logueado", true)
-                apply()
-            }
+            //RECUPERAR EL USUARIO DE LA DB
+            //SI EL USUARIO EXISTE COMPROBAR SI LA CONTRASEÑA COINCIDE
+            //SI TO_DO ES CORRECTO UTILIZAMOS EL NAVHOSTFRAGMENT PARA IR AL SIGUIENTE FRAGMENTO
+            val usuarioViewModel: UsuarioViewModel by viewModels()
+            usuarioViewModel.login(email.text.toString()).observe(viewLifecycleOwner,{
+                if (it!=null){
+                    if (it.password== pass1.toString()){
+                        val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)!!
+                        with(sharedPref.edit()) {
+                            putBoolean("logueado", true)
+                            putString("nombreUsuario", it.nombre)
+                            putLong("idUsuario", it.id)
+                            apply()
+                        }
+                        goToProducts()
+                    }else {
+                             Snackbar.make(view, "El usuario/contraseña introducido es incorrecto", Snackbar.LENGTH_LONG).show()
+
+                    }
+                }else {
+                Snackbar.make(view, "El usuario/contraseña introducido es incorrecto", Snackbar.LENGTH_LONG).show()
+                 }
+            })
+
+
+
             //NavHostFragment.findNavController(this).navigate(R.id.action_to_mobile_navigation)
 
 
