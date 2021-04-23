@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
@@ -16,7 +17,9 @@ import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.jjmorillo.ladespensademicasa.R
+import com.jjmorillo.ladespensademicasa.database.entities.Usuario
 import com.jjmorillo.ladespensademicasa.databinding.FragmentRegistroBinding
+import com.jjmorillo.ladespensademicasa.viewModels.UsuarioViewModel
 
 
 class RegistroFragment : Fragment() {
@@ -80,6 +83,10 @@ class RegistroFragment : Fragment() {
                 Snackbar.make(view, "¡las contraseñas no coinciden!", Snackbar.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+           //LOS DATOS SON CORRECTOS VOY A GUARDAR LOS DATOS EN LA BASE DE DATOS
+
+            val usuarioModel:UsuarioViewModel by viewModels ()
+            usuarioModel.save(Usuario(nombre.obtenerTexto(),email.obtenerTexto(),pass1.obtenerTexto()))
 
             auth.createUserWithEmailAndPassword(email.obtenerTexto(), pass1.obtenerTexto())
                 .addOnCompleteListener(requireActivity()) { task ->

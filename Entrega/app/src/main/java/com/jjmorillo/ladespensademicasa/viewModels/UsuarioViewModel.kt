@@ -2,6 +2,8 @@ package com.jjmorillo.ladespensademicasa.viewModels
 
 
 import android.content.Context
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jjmorillo.ladespensademicasa.aplication.App
@@ -24,5 +26,15 @@ class UsuarioViewModel: ViewModel() {
 
 
     }
-fun login(email:String):
+fun login(email:String):LiveData<Usuario>{
+    val liveData=MutableLiveData<Usuario>()
+    viewModelScope.launch {
+        val usuario= withContext(Dispatchers.IO){
+            db.usuarioDao().findOneByEmail(email)
+
+        }
+        liveData.postValue(usuario)
+    }
+    return liveData
+}
 }
