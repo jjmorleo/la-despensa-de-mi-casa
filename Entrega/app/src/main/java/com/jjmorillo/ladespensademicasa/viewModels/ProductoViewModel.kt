@@ -130,6 +130,27 @@ class ProductoViewModel : ViewModel() {
 
     }
 
+    fun obtenerLacteos():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Yogur bífidus", "DANONE", "Yogur bífidus desnatado edulcorado natural Danone Activia pack de 8 unidades de 120 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurbifidus.jpg?alt=media&token=83ad70d6-6b03-4500-a470-ba124b5eabb4", 3.06, 3.06))
+        productos.add(Producto(2, "Yogur con bolitas", "NESTLÉ", "Yogur con bolitas cubiertas de chocolate Mix-in Nestlé Kit Kat pack de 2 unidades de 115 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurbolitas.jpg?alt=media&token=604ad726-f605-4cd4-a273-809a67e2df25", 6.52, 1.50))
+        productos.add(Producto(3, "Yogur leche de cabra", "GOSHUA", "Yogur natural de leche de cabra Goshua 125 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurcabra.jpg?alt=media&token=d0959b57-a5fc-4978-9942-71363c60a1b6", 8.76, 2.19))
+        productos.add(Producto(4, "Yogur con fresa", "NESTLÉ", "Yogur con fresa Nestlé La Lechera sin gluten pack de 2 unidades de 125 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurfresa.jpg?alt=media&token=cc3dacd3-0185-41f1-adb8-504e6138593a", 4.56, 1.14))
+        productos.add(Producto(5, "Yogur de fresa con grageas", "NESTLÉ", "Yogur de fresa con grageas de chocolate Nestlé Smarties pack de 2 unidades de 128 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurgragea.jpg?alt=media&token=6dc32825-27f1-4a2d-a3ad-96de40b96dd5", 5.86, 1.50))
+        productos.add(Producto(6, "Yogur agrupado", "DANONE", "Yogur de fresa, macedonia, galleta y fresa-plátano Danone sin gluten pack de 12 unidades", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurmacedonia.jpg?alt=media&token=7fa9dd8b-19ed-478b-b713-ab6c70e080a5", 1.93, 2.78))
+        productos.add(Producto(7, "Yogur de mango", "PASTORET", "Yogur de mango ecológico Pastoret 135 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurmango.jpg?alt=media&token=39c4b686-82e7-48ea-9571-a5031cce5626", 10.52, 1.42))
+        productos.add(Producto(8, "Yoyur melocotón", "LALECHERA", "Yogur con melocotón Nestlé La Lechera sin gluten pack de 2 unidades de 125 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yogurmelocoton.jpg?alt=media&token=b751f70a-3555-4744-8609-f2763acb9ca7", 4.56, 1.14))
+        productos.add(Producto(9, "Yogur griego ", "DANONE", "Yogur griego con stracciatella Danone Oikos sin gluten pack de 4 unidades de 110 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/solomillovacuno.jpg?alt=media&token=be53cfa4-3993-4ea5-b67f-5df2d19ad14f", 4.82, 2.12))
+        productos.add(Producto(10, "Yogur con leche de oveja", "GOSHUA", "Yogur con leche de oveja natural Goshua pack de 2 unidades de 125 g.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/jamoncitospollo.jpg?alt=media&token=19b0bcb4-6948-4d7c-9bb8-176c7321f939", 7.36, 1.84))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
+    }
+
 
     fun obtenerNovedades(): LiveData<List<Producto>> {
         val liveData = MutableLiveData<List<Producto>>()
