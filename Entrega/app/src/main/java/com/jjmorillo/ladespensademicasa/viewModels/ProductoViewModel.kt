@@ -88,6 +88,46 @@ class ProductoViewModel : ViewModel() {
         return liveData
 
     }
+    fun obtenerBebidas():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Coca Cola zero", "COCACOLA", "Coca Cola zero azúcar pack 4 botellas 2 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/cocacolazero.jpg?alt=media&token=cd68289a-f816-47af-a670-ce9011ff3979", 0.84, 6.76))
+        productos.add(Producto(2, "Aquarius sabor limón zero", "ACUARIUSZERO", "Aquarius sabor limón zero botella 1.5 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/acuariolimon.jpg?alt=media&token=e33445d2-d39f-4287-9b07-5ff1ea5d726b", 1.15, 1.72))
+        productos.add(Producto(3, "Vino Semidulce", "DIAMANTE", "Diamante Semidulce Sin Crianza", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/diamante.jpg?alt=media&token=4556e200-a79c-4b0c-ad13-ce7ba957cda8", 3.99, 3.99))
+        productos.add(Producto(4, "Fanta naranja", "COCACOLA", "Refresco de naranja Fanta con gas pack de 2 botellas de 2 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/fantanaranja.jpg?alt=media&token=e9c2b5e9-387e-4d81-a694-1dda9465b705", 0.57, 2.28))
+        productos.add(Producto(5, "Vino Blanco", "FOUR LINES", "Four Lines Blanco 2020", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/fourlineblanco.jpg?alt=media&token=9f40bd08-5561-43a7-b249-9393f14c538e", 5.50, 5.50))
+        productos.add(Producto(6, "Gaseosa", "LA CASERA", "Gaseosa La Casera cero calorías pack de 4 botellas de 1,5 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/gaseosa.jpg?alt=media&token=ff78df50-d9af-40e3-b7b0-bb42cbd67708", 0.55, 3.30))
+        productos.add(Producto(7, "Whisky", "JOHNNIE WALHER", "Johnnie Walker Double Black Whisky", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/joniwalker.jpg?alt=media&token=4d645ebf-a41a-425a-9a05-aefae7a311d3", 39.86, 27.90))
+        productos.add(Producto(8,"Vino Rioja", "LUIS CAÑAS ", "Luis Cañas Tinto 2017", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/riojaluisca%C3%B1a.jpg?alt=media&token=4ac12d92-ebbc-488b-a10f-ea4963bfe8c3", 10.50, 10.50))
+        productos.add(Producto(9, "Tónica Schweppes zero", "SCHWEPPES", "Tónica Schweppes zero lata 25 cl.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/tonicalatazero.jpg?alt=media&token=804ecf7b-5400-4b73-a51b-648214e05603", 2.88, 0.72))
+        productos.add(Producto(10, "Vino frizzante", "YLLERA", "Yllera 5.5 Verdejo Frizzante", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yllera.jpg?alt=media&token=4e54030a-fa49-4f4f-9737-9e2d1bd76967", 5.69, 5.69))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
+    }
+    fun obtenerDrogueriaLimpieza():LiveData<List<Producto>>{
+
+        val liveData = MutableLiveData<List<Producto>>()
+
+        val productos = mutableListOf<Producto>() //LISTA MUTABLE
+        productos.add(Producto(1, "Detergente ropa", "ARIEL", "Detergente líquido Alpine Ariel 50 lavados.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/ariel.jpg?alt=media&token=a0b4ad6b-266c-403e-a2af-0d5eb1fd5f16", 0.28, 13.95))
+        productos.add(Producto(2, "Limpiador desinfectante", "SANYTOL", "Limpiador desinfectante multiusos sin lejía Sanytol 750 ml", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/desinfestante.jpg?alt=media&token=a38d1d60-8e0c-4bc9-9554-2d8c14b54bbb", 3.13, 2.35))
+        productos.add(Producto(3, "Limpiador de baño", "DON LIMPIO", "Limpiador de baño Don Limpio 1,5 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/diamante.jpg?alt=media&token=4556e200-a79c-4b0c-ad13-ce7ba957cda8", 1.50, 2.25))
+        productos.add(Producto(4, "Fanta naranja", "COCACOLA", "Refresco de naranja Fanta con gas pack de 2 botellas de 2 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/fantanaranja.jpg?alt=media&token=e9c2b5e9-387e-4d81-a694-1dda9465b705", 0.57, 2.28))
+        productos.add(Producto(5, "Vino Blanco", "FOUR LINES", "Four Lines Blanco 2020", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/fourlineblanco.jpg?alt=media&token=9f40bd08-5561-43a7-b249-9393f14c538e", 5.50, 5.50))
+        productos.add(Producto(6, "Gaseosa", "LA CASERA", "Gaseosa La Casera cero calorías pack de 4 botellas de 1,5 l.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/gaseosa.jpg?alt=media&token=ff78df50-d9af-40e3-b7b0-bb42cbd67708", 0.55, 3.30))
+        productos.add(Producto(7, "Whisky", "JOHNNIE WALHER", "Johnnie Walker Double Black Whisky", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/joniwalker.jpg?alt=media&token=4d645ebf-a41a-425a-9a05-aefae7a311d3", 39.86, 27.90))
+        productos.add(Producto(8,"Vino Rioja", "LUIS CAÑAS ", "Luis Cañas Tinto 2017", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/riojaluisca%C3%B1a.jpg?alt=media&token=4ac12d92-ebbc-488b-a10f-ea4963bfe8c3", 10.50, 10.50))
+        productos.add(Producto(9, "Tónica Schweppes zero", "SCHWEPPES", "Tónica Schweppes zero lata 25 cl.", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/tonicalatazero.jpg?alt=media&token=804ecf7b-5400-4b73-a51b-648214e05603", 2.88, 0.72))
+        productos.add(Producto(10, "Vino frizzante", "YLLERA", "Yllera 5.5 Verdejo Frizzante", "https://firebasestorage.googleapis.com/v0/b/la-despensa-de-mi-casa.appspot.com/o/yllera.jpg?alt=media&token=4e54030a-fa49-4f4f-9737-9e2d1bd76967", 5.69, 5.69))
+
+        liveData.postValue(productos)//MAIN THREAD
+        return liveData
+
+    }
     fun obtenerFrutasVerduras():LiveData<List<Producto>>{
 
         val liveData = MutableLiveData<List<Producto>>()
@@ -109,6 +149,9 @@ class ProductoViewModel : ViewModel() {
         return liveData
 
     }
+
+
+
     fun obtenerCarnes():LiveData<List<Producto>>{
 
         val liveData = MutableLiveData<List<Producto>>()
