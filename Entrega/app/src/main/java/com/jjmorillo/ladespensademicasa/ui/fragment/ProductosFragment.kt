@@ -6,13 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.adapters.RecyclerViewAdapter
 import com.jjmorillo.ladespensademicasa.databinding.FragmentProductosBinding
 import com.jjmorillo.ladespensademicasa.models.Producto
