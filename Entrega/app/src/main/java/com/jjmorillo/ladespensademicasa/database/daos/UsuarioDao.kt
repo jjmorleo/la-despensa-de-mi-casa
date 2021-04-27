@@ -2,22 +2,22 @@ package com.jjmorillo.ladespensademicasa.database.daos
 
 import androidx.room.*
 import com.jjmorillo.ladespensademicasa.database.entities.Usuario
+import com.jjmorillo.ladespensademicasa.database.entities.relations.PedidosDeUsuario
 
 @Dao
-interface UsuarioDao {
+abstract class UsuarioDao : BaseDao<Usuario>() {
 
     @Query("SELECT * from usuarios")
-    suspend fun findAll(): List<Usuario>
+    abstract suspend fun findAll(): List<Usuario>
 
     @Query("SELECT * from usuarios where email=:emailUsuario")
-    suspend fun findOneByEmail(emailUsuario:String):Usuario
+    abstract suspend fun findOneByEmail(emailUsuario: String): Usuario
 
-    @Insert
-    suspend fun save(usuario: Usuario): Long //DEVUELVE EL ID GENERADO PARA ESTE SAVE
+    @Query("SELECT * from usuarios where id=:usuarioId")
+    abstract suspend fun findAllByIdWithPedidos(usuarioId:Long):PedidosDeUsuario
+    @Transaction
+    @Query("SELECT * from usuarios")
+    abstract suspend fun findAllByIdWithPedidos(): List<PedidosDeUsuario>//2 OPERACIONES SELECT DE LOS USUARIOS Y SELECT DE LOS PEDIDOS
 
-    @Update
-    suspend fun update(usuario: Usuario)
 
-    @Delete
-    suspend fun delete(usuario: Usuario)
 }

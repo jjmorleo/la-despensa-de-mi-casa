@@ -10,46 +10,139 @@
         android:id="@+id/nav_frutasVerdurasFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.frutasverduras.FrutasVerdurasFragment"
         android:label="Frutas y Verduras"
-        tools:layout="@layout/fragment_frutas_verduras" />
+        tools:layout="@layout/fragment_frutas_verduras" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+        <argument
+            android:name="data"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
     <fragment
         android:id="@+id/nav_carnesFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.carnes.CarnesFragment"
         android:label="Carnes"
-        tools:layout="@layout/fragment_carnes" />
+        tools:layout="@layout/fragment_carnes" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_pescadosFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.pescados.PescadosFragment"
         android:label="Pescados"
-        tools:layout="@layout/fragment_pescados" />
+        tools:layout="@layout/fragment_pescados" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_panBolleriaFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.panbolleria.PanBolleriaFragment"
         android:label="Pan y Bollería"
-        tools:layout="@layout/fragment_pan_bolleria" />
+        tools:layout="@layout/fragment_pan_bolleria" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_alimentacionFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.alimentacion.AlimentacionFragment"
         android:label="Alimentación"
-        tools:layout="@layout/fragment_alimentacion" />
+        tools:layout="@layout/fragment_alimentacion" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_bebidasFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.bebidas.BebidasFragment"
         android:label="Bebidas"
-        tools:layout="@layout/fragment_bebidas" />
+        tools:layout="@layout/fragment_bebidas" >
+        <action
+            android:id="@+id/action_to_mobile_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_drogueriaLimpiezaFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.droguerialimpieza.DrogueriaLimpiezaFragment"
         android:label="Droguería y Limpieza"
-        tools:layout="@layout/fragment_drogueria_limpieza" />
+        tools:layout="@layout/fragment_drogueria_limpieza" >
+        <action
+            android:id="@+id/action_to_mobile_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/nav_lacteosFragment"
         android:name="com.jjmorillo.ladespensademicasa.ui.lacteos.LacteosFragment"
         android:label="Lácteos"
-        tools:layout="@layout/fragment_lacteos" />
+        tools:layout="@layout/fragment_lacteos" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+    </fragment>
     <fragment
         android:id="@+id/productosFragment2"
         android:name="com.jjmorillo.ladespensademicasa.ui.fragment.ProductosFragment"
         android:label="Novedades"
-        tools:layout="@layout/fragment_productos" />
+        tools:layout="@layout/fragment_productos" >
+        <action
+            android:id="@+id/action_to_detalleFragment"
+            app:destination="@id/mobile_detalleFragment" />
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/mobile_cartFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragment.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/mobile_detalleFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragment.DetalleFragment"
+        android:label="fragment_detalle"
+        tools:layout="@layout/fragment_detalle" >
+        <action
+            android:id="@+id/action_to_mobile_cartFragment"
+            app:destination="@id/mobile_cartFragment" />
+        <argument
+            android:name="atributoProductos"
+            app:argType="string[]"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <activity
+        android:id="@+id/navigationDrawer"
+        android:name="com.jjmorillo.ladespensademicasa.ui.activities.NavigationDrawer"
+        android:label="app_bar_main"
+        tools:layout="@layout/app_bar_main" />
 
 </navigation>

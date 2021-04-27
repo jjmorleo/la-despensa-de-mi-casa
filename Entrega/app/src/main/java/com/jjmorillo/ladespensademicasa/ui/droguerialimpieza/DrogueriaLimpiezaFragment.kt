@@ -5,21 +5,27 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jjmorillo.ladespensademicasa.adapters.RecyclerViewAdapter
+import com.jjmorillo.ladespensademicasa.R
+import com.jjmorillo.ladespensademicasa.adapters.ProductosRecyclerViewAdapter
 import com.jjmorillo.ladespensademicasa.databinding.FragmentDrogueriaLimpiezaBinding
-import com.jjmorillo.ladespensademicasa.models.Producto
+import com.jjmorillo.ladespensademicasa.database.entities.Producto
+import com.jjmorillo.ladespensademicasa.viewModels.CarritoViewModel
 import com.jjmorillo.ladespensademicasa.viewModels.ProductoViewModel
 
 
-class DrogueriaLimpiezaFragment : Fragment() {
+class DrogueriaLimpiezaFragment : Fragment(), ProductosRecyclerViewAdapter.ProductosAdapterListener {
 
     private var _binding: FragmentDrogueriaLimpiezaBinding? = null
+    val modelCarrito: CarritoViewModel by activityViewModels()
+    val modelProductos: ProductoViewModel by viewModels()
     private lateinit var auth: FirebaseAuth
     private val binding get() = _binding!!
     override fun onCreateView(
@@ -39,7 +45,7 @@ class DrogueriaLimpiezaFragment : Fragment() {
     }
     private fun createRecyclerView(productos: List<Producto>) {
         //apply es para el patron builder
-        val mAdapter = RecyclerViewAdapter(productos as MutableList<Producto>)
+        val mAdapter = ProductosRecyclerViewAdapter(productos as MutableList<Producto>, modelCarrito, this, CarritoViewModel())
         val recyclerView = binding!!.drogueriaLimpiezaRecyclerViewFragment
         recyclerView.apply {
             //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
@@ -50,6 +56,13 @@ class DrogueriaLimpiezaFragment : Fragment() {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.HORIZONTAL))
 
         }
+    }
+    override fun verDetalle(producto: Producto) {
+        NavHostFragment.findNavController(this).navigate(R.id.action_to_detalleFragment)
+    }
+
+    override fun verCart(producto: Producto) {
+        NavHostFragment.findNavController(this).navigate(R.id.action_to_mobile_cartFragment)
     }
 
 }

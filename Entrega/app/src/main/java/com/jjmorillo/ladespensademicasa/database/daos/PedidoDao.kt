@@ -1,26 +1,28 @@
 package com.jjmorillo.ladespensademicasa.database.daos
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.jjmorillo.ladespensademicasa.database.entities.Pedido
-import com.jjmorillo.ladespensademicasa.database.entities.Usuario
+import com.jjmorillo.ladespensademicasa.database.entities.PedidosProductosCrossRef
+import com.jjmorillo.ladespensademicasa.database.entities.Producto
+import com.jjmorillo.ladespensademicasa.database.entities.relations.PedidoConProductos
 
-interface PedidoDao {
+@Dao
+abstract class PedidoDao : BaseDao<Pedido>() {
 
     @Query("SELECT * from pedidos")
-    suspend fun findAll(): List<Pedido>
+    abstract suspend fun findAll(): List<Pedido>
 
-    @Query("SELECT * from usuarios where id=:id")
-    suspend fun findOneById(id:Long): Usuario
+    @Transaction
+    @Query("SELECT * from pedidos where id=:pedidoId")
+    abstract suspend fun findAllByIdWithProductos(pedidoId:Long): PedidoConProductos
 
     @Insert
-    suspend fun save(pedido: Pedido): Long //DEVUELVE EL ID GENERADO PARA ESTE SAVE
+    protected abstract suspend fun saveCrossRef(crossRef: PedidosProductosCrossRef)
+    suspend fun savePedidoProductos(pedidoId:Long, productos: Map<Producto, Int>){
+        productos.forEach {
+            saveCrossRef(PedidosProductosCrossRef(pedidoId, it.key.id, it.value))
 
-    @Update
-    suspend fun update(pedido: Pedido)
+        }
+    }
 
-    @Delete
-    suspend fun delete(pedido: Pedido)
 }

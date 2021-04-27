@@ -91,10 +91,12 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="8dp"
                 android:text="@string/comprar_product"
+                android:backgroundTint="@color/color_primary_variant"
+                android:textColor="@color/white"
                 app:cornerRadius="15dp"
                 app:icon="@drawable/ic_baseline_shopping_cart_24"
                 app:iconGravity="textStart"
-                app:iconTint="@color/color_primary_variant"
+                app:iconTint="@color/white"
                 app:strokeWidth="2dp" />
 
             <com.google.android.material.button.MaterialButton

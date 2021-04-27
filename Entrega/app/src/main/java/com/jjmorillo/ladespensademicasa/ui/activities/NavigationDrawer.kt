@@ -1,6 +1,8 @@
 package com.jjmorillo.ladespensademicasa.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
+
 import android.view.Menu
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -11,19 +13,27 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.jjmorillo.ladespensademicasa.R
 import com.jjmorillo.ladespensademicasa.databinding.ActivityNavigationDrawerBinding
 import com.jjmorillo.ladespensademicasa.databinding.AppBarMainBinding
+import com.jjmorillo.ladespensademicasa.viewModels.CarritoViewModel
 
 class NavigationDrawer : AppCompatActivity() {
-
+    private lateinit var auth: FirebaseAuth
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityNavigationDrawerBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityNavigationDrawerBinding.inflate(layoutInflater)
         val view = binding.root
+        auth = Firebase.auth
+
         setContentView(view)
 
         val coordinatorBinding= AppBarMainBinding.bind(binding.coordinatorLayout.root)
@@ -53,15 +63,18 @@ class NavigationDrawer : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.navigation_drawer, menu)
+
+
         //Para hacer logout en el Menú action bar en los tres puntitos
         /*binding.navView.menu.findItem(R.id.action_logout).setOnMenuItemClickListener{
-            cerrarSesion()
+            //auth.signOut()
+            //cerrarSesion()
         }*/
         return true
     }
-    fun cerrarSesion(){
 
-    }
+
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()

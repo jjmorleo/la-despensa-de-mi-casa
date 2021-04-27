@@ -5,22 +5,28 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.NavHostFragment
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
-import com.jjmorillo.ladespensademicasa.adapters.RecyclerViewAdapter
+import com.jjmorillo.ladespensademicasa.R
+import com.jjmorillo.ladespensademicasa.adapters.ProductosRecyclerViewAdapter
 import com.jjmorillo.ladespensademicasa.databinding.FragmentProductosBinding
-import com.jjmorillo.ladespensademicasa.models.Producto
+import com.jjmorillo.ladespensademicasa.database.entities.Producto
+import com.jjmorillo.ladespensademicasa.viewModels.CarritoViewModel
 import com.jjmorillo.ladespensademicasa.viewModels.ProductoViewModel
 
 
-class ProductosFragment : Fragment() {
+class ProductosFragment : Fragment(), ProductosRecyclerViewAdapter.ProductosAdapterListener{
 
     private var binding: FragmentProductosBinding? = null
     private lateinit var auth: FirebaseAuth
+    val modelProductos: ProductoViewModel by viewModels()
+    val modelCarrito: CarritoViewModel by activityViewModels()
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?
     ): View? {
@@ -31,8 +37,8 @@ class ProductosFragment : Fragment() {
 
         //ESTO SERIA PARA INICIALIZAR EL VIEWMODEL, CUANDO PASEMOS POR EL ONCREATEVIEW, NOS VA A CREAR EL VIEWMODEL
         //val model = ViewModelProvider(this).get(ProductoViewModel::class.java)
-        val model: ProductoViewModel by viewModels()
-        model.obtenerNovedades().observe(viewLifecycleOwner, {
+
+        modelProductos.obtenerNovedades().observe(viewLifecycleOwner, {
             createRecyclerView(it)
         })
 
@@ -66,7 +72,7 @@ class ProductosFragment : Fragment() {
 
     private fun createRecyclerView(productos: List<Producto>) {
         //apply es para el patron builder
-        val mAdapter = RecyclerViewAdapter(productos as MutableList<Producto>)
+        val mAdapter = ProductosRecyclerViewAdapter(productos as MutableList<Producto>, modelCarrito, this, CarritoViewModel())
         val recyclerView = binding!!.productosRecyclerViewFragment
         recyclerView.apply {
             //EL RECYCLERVIEW VA A SER UNA LISTA VERTICAL
@@ -98,4 +104,13 @@ class ProductosFragment : Fragment() {
         return productos
 
     }*/
+
+    override fun verDetalle(producto: Producto) {
+        NavHostFragment.findNavController(this).navigate(R.id.action_to_detalleFragment)
+    }
+
+    override fun verCart(producto: Producto) {
+        NavHostFragment.findNavController(this).navigate(R.id.action_to_mobile_cartFragment)
+
+    }
 }
