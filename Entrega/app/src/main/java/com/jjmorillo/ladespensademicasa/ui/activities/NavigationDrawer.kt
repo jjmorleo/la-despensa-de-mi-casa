@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -73,7 +74,19 @@ class NavigationDrawer : AppCompatActivity() {
         return true
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId){
+            R.id.action_logout->{
+                auth.signOut()
+                val intent= Intent (this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+                return true
+            }
 
+        }
+        return false
+    }
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment)

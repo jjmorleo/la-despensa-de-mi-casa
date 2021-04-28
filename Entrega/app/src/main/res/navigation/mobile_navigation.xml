@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/nav_frutasVerdurasFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.frutasverduras.FrutasVerdurasFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.FrutasVerdurasFragment"
         android:label="Frutas y Verduras"
         tools:layout="@layout/fragment_frutas_verduras" >
         <action
@@ -17,15 +17,11 @@
         <action
             android:id="@+id/action_to_mobile_cartFragment"
             app:destination="@id/mobile_cartFragment" />
-        <argument
-            android:name="data"
-            app:argType="string[]"
-            app:nullable="true"
-            android:defaultValue="@null" />
+
     </fragment>
     <fragment
         android:id="@+id/nav_carnesFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.carnes.CarnesFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.CarnesFragment"
         android:label="Carnes"
         tools:layout="@layout/fragment_carnes" >
         <action
@@ -37,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_pescadosFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.pescados.PescadosFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.PescadosFragment"
         android:label="Pescados"
         tools:layout="@layout/fragment_pescados" >
         <action
@@ -49,7 +45,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_panBolleriaFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.panbolleria.PanBolleriaFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.PanBolleriaFragment"
         android:label="Pan y Bollería"
         tools:layout="@layout/fragment_pan_bolleria" >
         <action
@@ -61,7 +57,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_alimentacionFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.alimentacion.AlimentacionFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.AlimentacionFragment"
         android:label="Alimentación"
         tools:layout="@layout/fragment_alimentacion" >
         <action
@@ -70,10 +66,13 @@
         <action
             android:id="@+id/action_to_mobile_cartFragment"
             app:destination="@id/mobile_cartFragment" />
+        <argument
+            android:name="data"
+            app:argType="com.jjmorillo.ladespensademicasa.database.entities.Producto" />
     </fragment>
     <fragment
         android:id="@+id/nav_bebidasFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.bebidas.BebidasFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.BebidasFragment"
         android:label="Bebidas"
         tools:layout="@layout/fragment_bebidas" >
         <action
@@ -85,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_drogueriaLimpiezaFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.droguerialimpieza.DrogueriaLimpiezaFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.DrogueriaLimpiezaFragment"
         android:label="Droguería y Limpieza"
         tools:layout="@layout/fragment_drogueria_limpieza" >
         <action
@@ -97,7 +96,7 @@
     </fragment>
     <fragment
         android:id="@+id/nav_lacteosFragment"
-        android:name="com.jjmorillo.ladespensademicasa.ui.lacteos.LacteosFragment"
+        android:name="com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer.LacteosFragment"
         android:label="Lácteos"
         tools:layout="@layout/fragment_lacteos" >
         <action

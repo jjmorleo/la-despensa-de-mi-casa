@@ -1,14 +1,14 @@
-package com.jjmorillo.ladespensademicasa.ui.alimentacion
+package com.jjmorillo.ladespensademicasa.ui.fragmenNavigationDrawer
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.auth.FirebaseAuth
@@ -60,7 +60,8 @@ class AlimentacionFragment : Fragment(), ProductosRecyclerViewAdapter.ProductosA
     }
 
     override fun verDetalle(producto: Producto) {
-        NavHostFragment.findNavController(this).navigate(R.id.action_to_detalleFragment)
+        val data= bundleOf("data" to producto)
+        NavHostFragment.findNavController(this).navigate(R.id.action_to_detalleFragment,data)
     }
 
     override fun verCart(producto: Producto) {
